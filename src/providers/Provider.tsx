@@ -1,11 +1,14 @@
+/* eslint-disable import/order */
 /* eslint-disable prettier/prettier */
+/* eslint-disable prettier/prettier */
+"use client"
 import { HeroUIProvider } from "@heroui/system";
 import { ReactNode } from "react";
 import { Toaster } from "sonner";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
 
-const Provider = ({ children }: { children: ReactNode }) => {
+const MainProvider = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <Provider store={store}>
@@ -18,4 +21,4 @@ const Provider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default Provider;
+export default MainProvider;

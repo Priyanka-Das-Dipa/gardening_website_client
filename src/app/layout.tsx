@@ -1,11 +1,10 @@
+/* eslint-disable import/order */
 import "@/src/app/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
-
-import { Providers } from "./providers";
-
 import { siteConfig } from "@/src/config/site";
 import { fontSans } from "@/src/config/fonts";
+import MainProvider from "../providers/Provider";
 
 export const metadata: Metadata = {
   title: {
@@ -38,11 +37,9 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-            {children}
-          </main>
-        </Providers>
+        <MainProvider>
+          <main className="container mx-auto  pt-16">{children}</main>
+        </MainProvider>
       </body>
     </html>
   );
