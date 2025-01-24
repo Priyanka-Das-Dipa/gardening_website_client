@@ -2,12 +2,10 @@
 /* eslint-disable import/order */
 import "@/src/app/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import clsx from "clsx";
 import { siteConfig } from "@/src/config/site";
-import { fontSans } from "@/src/config/fonts";
 import MainProvider from "../providers/Provider";
-import { Navbar } from "../components/navbar";
 import Footer from "../components/shared/Footer";
+import NavigateBar from "../components/shared/Navbar";
 // import NavigationBar from "../components/shared/Navbar";
 
 export const metadata: Metadata = {
@@ -37,10 +35,9 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <body>
         <MainProvider>
-          <main >
-            <Navbar />
-            {children}
-          </main>
+          <NavigateBar />
+          <div className="pb-[360px]">{children}</div>
+
           <Footer />
         </MainProvider>
       </body>
