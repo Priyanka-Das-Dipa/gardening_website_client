@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable import/order */
 import "@/src/app/styles/globals.css";
 import { Metadata, Viewport } from "next";
@@ -5,6 +6,9 @@ import clsx from "clsx";
 import { siteConfig } from "@/src/config/site";
 import { fontSans } from "@/src/config/fonts";
 import MainProvider from "../providers/Provider";
+import { Navbar } from "../components/navbar";
+import Footer from "../components/shared/Footer";
+// import NavigationBar from "../components/shared/Navbar";
 
 export const metadata: Metadata = {
   title: {
@@ -31,14 +35,13 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en">
-      <body
-        className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
-      >
+      <body>
         <MainProvider>
-          <main className="container mx-auto  pt-16">{children}</main>
+          <main >
+            <Navbar />
+            {children}
+          </main>
+          <Footer />
         </MainProvider>
       </body>
     </html>
