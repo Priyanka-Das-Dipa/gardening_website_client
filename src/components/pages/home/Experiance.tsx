@@ -1,8 +1,11 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable import/order */
+/* eslint-disable prettier/prettier */
+"use client";
 import Image from "next/image";
 import left from "@/src/assets/images/plants-left.png";
 import right from "@/src/assets/images/plants-right.png";
 import Link from "next/link";
-/* eslint-disable prettier/prettier */
 const Experiance = () => {
   return (
     <div className="container mx-auto my-20">
