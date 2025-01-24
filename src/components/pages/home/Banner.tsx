@@ -14,7 +14,6 @@ const Banner = () => {
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    // Trigger animation when the component loads
     setAnimate(true);
   }, []);
   return (
