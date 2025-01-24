@@ -14,13 +14,13 @@ const Experiance = () => {
           Crafting Green Spaces for a Better Tomorrow!
         </h1>
         <p className="text-center text-xl pt-3">
-          At The Gardeny, we combine creativity and sustainability to <br />{" "}
+          At The Gardeny, we combine creativity and sustainability to <br />
           design outdoor environments that align with your goals and
           nature&apos;s harmony.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 justify-center items-center pt-14">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 justify-center items-center pt-14">
         <div className="p-6 text-center relative ">
           <h1 className="text-7xl text-green-600">40</h1>
           <h3 className="text-xl font-bold mb-2">YEARS</h3>
