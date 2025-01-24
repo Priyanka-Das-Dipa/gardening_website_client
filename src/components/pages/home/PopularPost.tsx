@@ -12,8 +12,14 @@ import { AiTwotoneDislike, AiTwotoneLike } from "react-icons/ai";
 const PopularPost = () => {
   return (
     <div className="container mx-auto my-20">
-      <div className="space-y-5 mb-10">
-        <h1 className="text-4xl text-center text-green-600">Popular Post</h1>
+      <div className="space-y-3 mb-10">
+        <h1 className="text-4xl text-center text-green-600">
+          Most Talked About
+        </h1>
+        <p className="text-center text-xl ">
+          Explore the top-rated posts that are capturing everyone&apos;s
+          attention.
+        </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pt-6">
         <div className="max-w-sm w-full bg-white shadow-lg rounded-lg overflow-hidden">
@@ -282,7 +288,6 @@ const PopularPost = () => {
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   );
