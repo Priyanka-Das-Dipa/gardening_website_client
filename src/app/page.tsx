@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+import AboutSection from "../components/pages/home/AboutSection";
 import Banner from "../components/pages/home/Banner";
 import Category from "../components/pages/home/Category";
 import Experiance from "../components/pages/home/Experiance";
@@ -12,6 +13,7 @@ const HomePage = () => {
       <Experiance/>
       <Category/>
       <PopularPost/>
+      <AboutSection/>
       <RecentPublish/>
     </div>
   );
