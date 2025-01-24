@@ -36,7 +36,7 @@ export default function RootLayout({
       <body>
         <MainProvider>
           <NavigateBar />
-          <div className="pb-[360px]">{children}</div>
+          <div>{children}</div>
 
           <Footer />
         </MainProvider>

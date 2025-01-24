@@ -51,10 +51,10 @@ const Banner = () => {
               animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <button className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md shadow-md font-semibold">
+            <button className="bg-green-500 hover:bg-green-600 text-white px-3 py-1  md:px-6 md:py-3 rounded-md shadow-md font-semibold">
               Explore More
             </button>
-            <button className="bg-transparent border border-white hover:bg-white hover:text-green-600 text-white px-6 py-3 rounded-md shadow-md font-semibold">
+            <button className="bg-transparent border border-white hover:bg-white hover:text-green-600 text-white px-3 py-1 md:px-6 md:py-3 rounded-md shadow-md font-semibold">
               Get Started
             </button>
           </div>

@@ -24,7 +24,7 @@ const Category = () => {
       <div className="space-y-5 mb-6">
         <h1 className="text-4xl text-center text-green-600">Categories</h1>
         <div className="flex justify-center items-center">
-          <ul className="flex gap-5 font-bold">
+          <ul className="flex gap-5 font-bold flex-wrap">
             <li className=" text-black hover:text-green-800">Fruit</li>
             <li className=" text-black hover:text-green-800">Vegetable</li>
             <li className=" text-black hover:text-green-800">Herb</li>
