@@ -1,9 +1,13 @@
-import { title } from "@/src/components/primitives";
+/* eslint-disable prettier/prettier */
+import AboutBanner from "@/src/components/pages/about/AboutBanner";
+import Mission from "@/src/components/pages/about/Mission";
+
 
 export default function AboutPage() {
   return (
-    <div>
-      <h1 className={title()}>About</h1>
+    <div className="space-y-20">
+      <AboutBanner/>
+      <Mission/>
     </div>
   );
 }
