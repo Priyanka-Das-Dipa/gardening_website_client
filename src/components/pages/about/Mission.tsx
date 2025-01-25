@@ -10,9 +10,9 @@ import mission from "@/src/assets/images/mission.png";
 
 const Mission = () => {
   return (
-    <div className="bg-red-50/40">
+    <div className="">
       <div className="container mx-auto py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 pb-10">
           {/* Top-right: Image */}
           <div className="">
             <Image
@@ -39,6 +39,7 @@ const Mission = () => {
             </div>
           </div>
         </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 pt-16">
           {/* Top-left: Text */}
           <div className="flex justify-center items-center bg-white rounded-l-2xl">
