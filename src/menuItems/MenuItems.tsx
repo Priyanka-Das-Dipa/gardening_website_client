@@ -1,5 +1,9 @@
 /* eslint-disable prettier/prettier */
 export const MenuItems = [
+  // {
+  //   name: "Home",
+  //   url: "/",
+  // },
   {
     name: "Post",
     url: "post",
@@ -10,7 +14,7 @@ export const MenuItems = [
   },
   {
     name: "About Us",
-    url: "about-us",
+    url: "about",
   },
   {
     name: "Contact Us",
