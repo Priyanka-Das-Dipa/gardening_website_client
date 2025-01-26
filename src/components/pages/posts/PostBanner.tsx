@@ -23,12 +23,12 @@ export const animals = [
 ];
 const PostBanner = () => {
   return (
-    <div className="relative w-full" style={{ height: "70vh" }}>
-      <Image layout="fill" objectFit="cover" alt="banner_image" src={banner} />
-      <div>
+    <div className="container mx-auto" >
+      
+      <div className="flex ">
         <Input
           type="text"
-          className="w-full max-w-lg p-3 rounded-lg shadow-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full max-w-lg p-3 rounded-lg shadow-lg text-gray-800"
           placeholder="Search posts..."
         />
         <Select className="max-w-xs" label="Select an animal">
