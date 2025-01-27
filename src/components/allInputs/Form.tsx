@@ -19,7 +19,7 @@ interface IFormConfig {
   defaultValue?: Record<string, any>;
   resolver?: any;
 }
-const Form = ({
+const GForm = ({
   resolver,
   defaultValue,
   onSubmit,
@@ -56,4 +56,4 @@ const Form = ({
   );
 };
 
-export default Form;
+export default GForm;
