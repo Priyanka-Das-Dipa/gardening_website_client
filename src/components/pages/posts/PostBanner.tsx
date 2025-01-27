@@ -23,19 +23,22 @@ export const animals = [
 ];
 const PostBanner = () => {
   return (
-    <div className="container mx-auto" >
-      
-      <div className="flex ">
-        <Input
-          type="text"
-          className="w-full max-w-lg p-3 rounded-lg shadow-lg text-gray-800"
-          placeholder="Search posts..."
-        />
-        <Select className="max-w-xs" label="Select an animal">
-          {animals.map((animal) => (
-            <SelectItem key={animal.key}>{animal.label}</SelectItem>
-          ))}
-        </Select>
+    <div className="container mx-auto py-1">
+      <div className=" ">
+        <div className="flex justify-center items-center">
+          <Input
+            type="text"
+            className="w-full max-w-lg p-3 rounded-lg row-span-2 text-gray-800"
+            placeholder="Search posts..."
+          />
+        </div>
+        <div className="flex justify-center items-center">
+          <Select className="max-w-xs" label="Select a category">
+            {animals.map((animal) => (
+              <SelectItem key={animal.key}>{animal.label}</SelectItem>
+            ))}
+          </Select>
+        </div>
       </div>
     </div>
   );

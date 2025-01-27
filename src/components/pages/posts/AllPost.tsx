@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-sort-props */
 /* eslint-disable prettier/prettier */
 /* eslint-disable import/order */
 /* eslint-disable prettier/prettier */
@@ -10,8 +11,12 @@ import user from "@/src/assets/images/user.jpeg";
 const AllPost = () => {
   return (
     <>
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="container mx-auto pt-12">
+        <div className="py-2">
+          <h1 className=" text-3xl "> All Recent Post</h1>
+          <hr className=" w-[200px] h-1 bg-green-600 " />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 pt-5">
           <div className="max-w-3xl w-full bg-white shadow-lg rounded-lg overflow-hidden flex">
             {/* Left side: Image */}
             <div className="w-1/2">
