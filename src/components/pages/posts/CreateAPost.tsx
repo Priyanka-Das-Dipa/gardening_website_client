@@ -1,8 +1,8 @@
+/* eslint-disable react/jsx-sort-props */
 /* eslint-disable padding-line-between-statements */
 /* eslint-disable import/order */
 /* eslint-disable prettier/prettier */
 "use client";
-
 import { useLocalUser } from "@/src/context/user.provider";
 import { useGetCategoryQuery } from "@/src/redux/features/category/category.api";
 import { useMakePostMutation } from "@/src/redux/features/post/post.api";
