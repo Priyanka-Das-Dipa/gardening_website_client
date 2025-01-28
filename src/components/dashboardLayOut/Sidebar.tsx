@@ -1,3 +1,8 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable import/order */
+/* eslint-disable react/jsx-sort-props */
+/* eslint-disable padding-line-between-statements */
+/* eslint-disable prettier/prettier */
 "use client";
 import { useLocalUser } from "@/src/context/user.provider";
 import { SidebarItemsAdmin, SideBarItemsUser } from "@/src/menuItems/MenuItems";
