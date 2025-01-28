@@ -1,5 +1,6 @@
-/* eslint-disable react/jsx-sort-props */
 /* eslint-disable padding-line-between-statements */
+/* eslint-disable import/order */
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable prettier/prettier */
 "use client";
 
@@ -20,7 +21,7 @@ import {
 import { toast } from "sonner";
 import Swal from "sweetalert2";
 
-const UserTable = () => {
+const AllUserTable = () => {
   const [deleteUser] = useDeleteUserMutation();
   const [promotDemote] = useMakeUserAdminMutation();
   const { data } = useGetAllUserQuery({});
@@ -124,4 +125,4 @@ const UserTable = () => {
   );
 };
 
-export default UserTable;
+export default AllUserTable;

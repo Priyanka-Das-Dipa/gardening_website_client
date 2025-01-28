@@ -1,6 +1,7 @@
-/* eslint-disable padding-line-between-statements */
+/* eslint-disable prettier/prettier */
 /* eslint-disable import/order */
-/* eslint-disable react/self-closing-comp */
+/* eslint-disable react/jsx-sort-props */
+/* eslint-disable padding-line-between-statements */
 /* eslint-disable prettier/prettier */
 "use client";
 import Loading from "@/src/components/shared/Loading";
@@ -8,7 +9,7 @@ import NoDataFound from "@/src/components/shared/NoDataFound";
 import { useLocalUser } from "@/src/context/user.provider";
 import {
   useDeletePostMutation,
-  useGetPostByUserIdQuery,
+  useGetAllPostQuery,
 } from "@/src/redux/features/post/post.api";
 import { Tpost } from "@/src/types";
 import {
@@ -20,22 +21,15 @@ import {
   TableHeader,
   TableRow,
 } from "@heroui/react";
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
 import Swal from "sweetalert2";
 
-const UserAllPosts = () => {
+const AllPost = () => {
   const [deletePost] = useDeletePostMutation();
-  const EditPostModal = dynamic(
-    () => import("@/src/components/modals/PostEditModal"),
-    {
-      ssr: false,
-    }
-  );
 
   const { user, isLoading } = useLocalUser();
-  const { data: postData } = useGetPostByUserIdQuery(`${user?._id}`);
+  const { data: postData } = useGetAllPostQuery({});
   const post = postData?.data;
 
   const handleDeletePost = (postId: string) => {
@@ -66,6 +60,7 @@ const UserAllPosts = () => {
       }
     });
   };
+
   return (
     <>
       {isLoading ? (
@@ -115,8 +110,7 @@ const UserAllPosts = () => {
                           </Link>
                         </TableCell>
                         <TableCell className="flex justify-center gap-4">
-                          <EditPostModal post={item} />
-                          <Button onClick={() => handleDeletePost(item?._id)}>
+                          <Button onPress={() => handleDeletePost(item?._id)}>
                             Delete
                           </Button>
                         </TableCell>
@@ -133,4 +127,4 @@ const UserAllPosts = () => {
   );
 };
 
-export default UserAllPosts;
+export default AllPost;
