@@ -16,7 +16,7 @@ const Mission = () => {
           {/* Top-right: Image */}
           <div className="">
             <Image
-              src={mission}
+              src={`${mission}`}
               width={300}
               height={300}
               alt="Top-right Image"
@@ -39,7 +39,7 @@ const Mission = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 pt-16">
           {/* Top-left: Text */}
           <div className="flex justify-center items-center bg-white rounded-l-2xl">

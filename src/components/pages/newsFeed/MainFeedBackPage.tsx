@@ -28,7 +28,7 @@ const MainFeedBackPage = () => {
               <Image
                 width={500}
                 height={500}
-                src={vegetable}
+                src={`${vegetable}`}
                 alt="Popular Post"
                 className="w-full h-full object-cover"
               />
@@ -61,7 +61,7 @@ const MainFeedBackPage = () => {
               {/* Author Profile */}
               <div className="flex items-center">
                 <Image
-                  src={user} // Replace with author profile image
+                  src={`${user}`} // Replace with author profile image
                   width={30}
                   height={30}
                   alt="Author"
@@ -112,7 +112,7 @@ const MainFeedBackPage = () => {
               {/* User Profile and Date */}
               <div className="flex items-center mt-4">
                 <Image
-                  src={user}
+                  src={`${user}`}
                   width={50}
                   height={50}
                   alt="User Avatar"

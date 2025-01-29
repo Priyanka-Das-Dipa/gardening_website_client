@@ -1,9 +1,7 @@
-/* eslint-disable import/order */
-/* eslint-disable padding-line-between-statements */
-/* eslint-disable react/jsx-no-undef */
 /* eslint-disable prettier/prettier */
+/* eslint-disable import/order */
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -14,37 +12,45 @@ import {
   NavbarMenuItem,
   Link,
   Button,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
 } from "@heroui/react";
-import { MenuItems } from "@/src/menuItems/MenuItems";
 
-export const AcmeLogo = () => {
-  return (
-    <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
-      <path
-        clipRule="evenodd"
-        d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
-        fill="currentColor"
-        fillRule="evenodd"
-      />
-    </svg>
-  );
-};
+import { MenuItems } from "@/src/menuItems/MenuItems";
+import { toast } from "sonner";
+import Cookies from "js-cookie";
+import { useLocalUser } from "@/src/context/user.provider";
+import { useAppDispatch } from "@/src/redux/hooks";
+import { useGetUserByEmailQuery } from "@/src/redux/features/auth/auth.api";
+import { logOut } from "@/src/redux/features/auth/authSlice";
+import Image from "next/image";
 
 const NavigateBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const { user, isLoading } = useLocalUser();
+  const dispatch = useAppDispatch();
+  const { data: loggedInuser, isSuccess } = useGetUserByEmailQuery(
+    `${user?.email}`
+  );
+  const [isClient, setIsClient] = useState(false);
 
-  // const menuItems = [
-  //   "Profile",
-  //   "Dashboard",
-  //   "Activity",
-  //   "Analytics",
-  //   "System",
-  //   "Deployments",
-  //   "My Settings",
-  //   "Team Settings",
-  //   "Help & Feedback",
-  //   "Log Out",
-  // ];
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const handleLogout = () => {
+    const toastId = toast.loading("processing...");
+
+    Cookies.remove("accessToken");
+    dispatch(logOut());
+    toast.success("Logout successful", { id: toastId });
+  };
+
+  if (!isClient && !isSuccess) {
+    return null;
+  }
 
   return (
     <div>
@@ -57,19 +63,21 @@ const NavigateBar = () => {
               className="sm:hidden"
             />
             <NavbarBrand>
-              <AcmeLogo />
-              <p className="font-bold text-inherit">ACME</p>
+              <Link href="/">
+                <p className="font-bold text-green-700 text-xl"> GrowGenius</p>
+              </Link>
             </NavbarBrand>
           </NavbarContent>
           {/* Large screen menu */}
           <NavbarContent className="hidden sm:flex gap-4" justify="center">
             {MenuItems?.map((item, idx: number) => {
-              // if (item?.url === "profile" && !user) {
-              //   return null;
-              // }
+              if (item?.url === "profile" && !user) {
+                return null;
+              }
+
               return (
                 <NavbarItem key={idx} className="font-semibold text-secondary">
-                  <Link color="foreground" href={`/${item.url}`}>
+                  <Link color="foreground" href={`/${item?.url}`}>
                     {item?.name}
                   </Link>
                 </NavbarItem>
@@ -77,9 +85,60 @@ const NavigateBar = () => {
             })}
           </NavbarContent>
           <NavbarContent justify="end">
-            <NavbarItem className="hidden lg:flex">
-              <Link href="#">Login</Link>
-            </NavbarItem>
+            {user ? (
+              <Dropdown>
+                <DropdownTrigger>
+                  {!isLoading && (
+                    <div className="relative">
+                      <Image
+                        src={`${loggedInuser?.data?.profilePhoto || ""}`}
+                        alt={user?.name}
+                        width={300}
+                        height={300}
+                        className="size-12 rounded-full shadow cursor-pointer"
+                      />
+                      {loggedInuser?.data?.verified === true ? (
+                        <span className="absolute -right-2 top-6 size-5 shadow flex items-center justify-center rounded-full bg-gray-300">
+                          {/* <MdVerified className="text-primary" size={16} /> */}
+                        </span>
+                      ) : null}
+                    </div>
+                  )}
+                </DropdownTrigger>
+                <DropdownMenu className="m-2">
+                  <DropdownItem key={""}>
+                    <div className="space-y-2 mb-2 flex flex-col text-center">
+                      <Link href="/profile">
+                        <Button className="text-center w-full rounded-lg text-black text-md p-2">
+                          Profile
+                        </Button>
+                      </Link>
+                      <Link
+                        href={`/${user?.role === "ADMIN" ? "admin" : "user"}`}
+                      >
+                        <Button className="text-center w-full rounded-lg text-black text-md p-2">
+                          Dashborad
+                        </Button>
+                      </Link>
+                    </div>
+                    <Button
+                      className="text-center py-2 w-full h-auto text-black"
+                      onPress={handleLogout}
+                    >
+                      Log Out
+                    </Button>
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            ) : (
+              <NavbarItem>
+                <Button className="bg-green-600">
+                  <Link href="/login" className="text-black">
+                    Login
+                  </Link>
+                </Button>
+              </NavbarItem>
+            )}
           </NavbarContent>
 
           {/* mobile screen */}
@@ -95,7 +154,7 @@ const NavigateBar = () => {
                         : "foreground"
                   }
                   className="w-full"
-                  href={`/${item.url}`}
+                  href={`/${item?.url}`}
                   size="lg"
                 >
                   {item?.name}

@@ -3,7 +3,6 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable prettier/prettier */
 "use client";
-
 import {
   useDeleteUserMutation,
   useGetAllUserQuery,
@@ -37,7 +36,7 @@ const AllUserTable = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
-      if (result.isConfirmed) {
+      if (result?.isConfirmed) {
         const res = await deleteUser(id);
         if (res?.data?.success) {
           toast.success(res?.data?.message);
@@ -90,22 +89,22 @@ const AllUserTable = () => {
             <TableRow key={user._id}>
               <TableCell>{idx + 1}</TableCell>
               <TableCell className="font-roboto_slab md:text-lg">
-                {user.name}
+                {user?.name}
               </TableCell>
               <TableCell className="">
                 <span
                   className={`${user?.role === "ADMIN" ? "bg-pink-600" : "bg-green-600"} text-center min-w-14 block text-white p-1 rounded`}
                 >
-                  {user.role}
+                  {user?.role}
                 </span>
               </TableCell>
-              <TableCell>{user.totalPosts}</TableCell>
+              <TableCell>{user?.totalPosts}</TableCell>
 
               <TableCell className="">
                 <span
                   className={`${user?.verified === true ? "bg-pink-600" : "bg-green-600"} text-center min-w-14 block text-white p-1 rounded`}
                 >
-                  {user.verified ? "Yes" : "No"}
+                  {user?.verified ? "Yes" : "No"}
                 </span>
               </TableCell>
 

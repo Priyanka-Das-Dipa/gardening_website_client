@@ -34,7 +34,7 @@ const Sidebar = () => {
         </svg>
       </button>
       <div
-        className={`min-h-screen flex gap-3 pt-10 duration-200 w-[300px] flex-col sm:gap-4 fixed h-full md:static bg-slate-600 text-white p-2 ${sideBarOpen ? "-left-[300px] " : "z-40"}`}
+        className={`min-h-screen flex gap-3 pt-10 duration-200 w-[300px] flex-col sm:gap-4 fixed h-full md:static border-r-3 shadow-lg text-black p-2 ${sideBarOpen ? "-left-[300px] " : "z-40"}`}
       >
         {user?.role === "ADMIN"
           ? SidebarItemsAdmin?.map((item, idx) => {

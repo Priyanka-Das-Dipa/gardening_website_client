@@ -22,11 +22,6 @@ const authApi = baseApi.injectEndpoints({
           body: data,
         };
       },
-
-      // transformErrorResponse: (Response: any) => {
-      //   Cookies.set("token", Response?.data?.data?.accessToken);
-      //   return Response;
-      // },
     }),
     getAllUser: builder.query({
       query: () => {

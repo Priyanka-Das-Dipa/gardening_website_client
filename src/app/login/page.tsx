@@ -1,4 +1,6 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable import/order */
+/* eslint-disable prettier/prettier */
 "use client"
 import GForm from "@/src/components/allInputs/Form";
 import GInput from "@/src/components/allInputs/Input";
@@ -94,12 +96,8 @@ const LoginPage = () => {
                   />
                 )}
               </div>
-              <div className="text-end">
-                <p className="text-sm text-secondary font-semibold inline text-end mt-2 cursor-pointer select-none">
-                  Forgot password?
-                </p>
-              </div>
-              <Button className="w-full bg-secondary text-white" type="submit">
+              
+              <Button className="w-full bg-green-700 text-white" type="submit">
                 Login
               </Button>
             </GForm>
@@ -112,11 +110,7 @@ const LoginPage = () => {
                 Create Account
               </Link>
             </div>
-            <div className="mt-12 space-y-1">
-              <p>Admin credentials</p>
-              <p>Email: paul@gmail.com</p>
-              <p>Pass: 654321</p>
-            </div>
+            
           </div>
         </div>
       )}

@@ -16,6 +16,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import GInput from "../../allInputs/Input";
 import { Button, Checkbox, Select, SelectItem } from "@heroui/react";
 import { postValidation } from "@/src/validation/validationSchema";
+import CreateCategory from "../../modals/CreateCategoryModal";
 
 const CreateAPost = () => {
   const router = useRouter();
@@ -27,8 +28,6 @@ const CreateAPost = () => {
   const { user } = useLocalUser();
   const categories = data?.data;
   const [isPremium, setIsPremium] = useState<boolean>(false);
-
-  console.log(content);
 
   const config = {
     loadExternalConfig: false,
@@ -47,6 +46,7 @@ const CreateAPost = () => {
   };
   //   handle submit
   const handleSubmit: SubmitHandler<FieldValues> = async (data) => {
+    console.log(data);
     const toastId = toast.loading("Creating...");
     const postData = {
       ...data,
@@ -78,7 +78,7 @@ const CreateAPost = () => {
             <div className="flex min-w-[120px] md:min-w-[500px] flex-wrap md:flex-nowrap gap-4 md:my-5">
               <Select
                 isDisabled={isLoading}
-                label="Select an animal"
+                label="Select an Category"
                 size="sm"
                 className="max-w-xs"
                 onChange={(e: any) => setCategory(e.target.value)}
@@ -96,17 +96,16 @@ const CreateAPost = () => {
                 )}
               </Select>
             </div>
-            {/* <div>
+            <div>
               <CreateCategory />
-            </div> */}
+            </div>
           </div>
           <div className="overflow-y-scroll max-h-[600px]">
             <JoditEditor
               ref={editor}
               value={content}
               config={config as any} // tabIndex of textarea
-              onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-              // onChange={newContent => { console.log(newContent) }}
+              onBlur={(newContent) => setContent(newContent)} 
             />
 
             <Button
@@ -120,7 +119,7 @@ const CreateAPost = () => {
           </div>
           <Button
             type="submit"
-            className="mt-4 bg-secondary text-white md:px-20"
+            className="mt-4 bg-gray-500 text-black md:px-20"
           >
             Submit Post
           </Button>

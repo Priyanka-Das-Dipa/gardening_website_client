@@ -49,7 +49,7 @@ const AboutCards = () => {
         <div className="bg-white w-full md:w-80  rounded-lg hover:shadow-lg overflow-hidden ">
           <Image
             className="w-full h-96 object-cover"
-            src={card1} // Replace with your image URL
+            src={card1} 
             alt="Mission"
             width={500}
             height={500}

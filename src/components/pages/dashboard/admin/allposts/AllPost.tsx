@@ -93,7 +93,7 @@ const AllPost = () => {
                           {idx + 1}
                         </TableCell>
                         <TableCell className="font-semibold">
-                          {item.title.slice(0, 30)}
+                          {item?.title?.slice(0, 30)}
                         </TableCell>
                         <TableCell className="md:pl-10">
                           {item?.upVotes?.length}

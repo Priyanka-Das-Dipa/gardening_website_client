@@ -27,6 +27,7 @@ const RegistrationPage = () => {
   const [imageFile, setImageFile] = useState<any>();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    console.log("this is from register", data);
     // const toastId = toast.loading("Registering...")
     const toastId = toast.loading("Register processing...");
     let profilePhoto;
@@ -113,7 +114,7 @@ const RegistrationPage = () => {
             />
             {
               <Button
-                className="w-full bg-secondary text-white disabled:bg-disable"
+                className="w-full bg-green-700 text-white disabled:bg-disable"
                 type="submit"
                 disabled={!imageFile}
               >

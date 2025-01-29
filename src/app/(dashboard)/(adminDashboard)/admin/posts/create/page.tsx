@@ -1,5 +1,6 @@
 /* eslint-disable padding-line-between-statements */
 /* eslint-disable prettier/prettier */
+"use client"
 import dynamic from "next/dynamic";
 import React from "react";
 
