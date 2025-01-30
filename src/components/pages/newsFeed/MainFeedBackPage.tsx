@@ -1,15 +1,17 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/jsx-sort-props */
 /* eslint-disable import/order */
 /* eslint-disable prettier/prettier */
 "use client";
-import Image from "next/image";
+
 import NoDataFound from "../../shared/NoDataFound";
 import UserProfile from "./UserProfile";
 import user from "@/src/assets/images/user.jpeg";
 import vegetable from "@/src/assets/images/vagitable.jpeg";
 import { AiTwotoneDislike, AiTwotoneLike } from "react-icons/ai";
 import "./custome.css";
+import Image from "next/image";
 
 const MainFeedBackPage = () => {
   return (
@@ -28,7 +30,7 @@ const MainFeedBackPage = () => {
               <Image
                 width={500}
                 height={500}
-                src={`${vegetable}`}
+                src={vegetable}
                 alt="Popular Post"
                 className="w-full h-full object-cover"
               />
@@ -61,7 +63,7 @@ const MainFeedBackPage = () => {
               {/* Author Profile */}
               <div className="flex items-center">
                 <Image
-                  src={`${user}`} // Replace with author profile image
+                  src={user} // Replace with author profile image
                   width={30}
                   height={30}
                   alt="Author"
@@ -112,9 +114,9 @@ const MainFeedBackPage = () => {
               {/* User Profile and Date */}
               <div className="flex items-center mt-4">
                 <Image
-                  src={`${user}`}
                   width={50}
                   height={50}
+                  src={user}
                   alt="User Avatar"
                   className="w-15 h-15 rounded-full mr-3"
                 />

@@ -9,13 +9,11 @@ const baseQuery = fetchBaseQuery({
   baseUrl: "http://localhost:5000/api",
 
   credentials: "include",
-  prepareHeaders: async (headers, { getState }) => {
-    const token = (getState() as RootState).auth;
-    // const auth = (await cookies()).get("accessToken");
-    // console.log(auth);
+  prepareHeaders: (headers, { getState }) => {
+    const token = (getState() as RootState).auth.token;
+    console.log(token);
     if (token) {
-      console.log(token);
-      headers.set(`authorization`, `${token.token}`);
+      headers.set(`authorization`, `${token}`);
     }
     return headers;
   },

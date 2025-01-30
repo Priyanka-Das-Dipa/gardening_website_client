@@ -105,7 +105,12 @@ const CreateAPost = () => {
               ref={editor}
               value={content}
               config={config as any} // tabIndex of textarea
-              onBlur={(newContent) => setContent(newContent)} 
+              onBlur={(newContent) => setContent(newContent)}
+            />
+            <input
+              onChange={(e) => onChangeFile(e.target.files)}
+              type="file"
+              className="w-full bg-gray-100 p-2 rounded-lg"
             />
 
             <Button

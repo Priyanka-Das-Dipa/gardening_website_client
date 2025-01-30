@@ -14,10 +14,10 @@ const UserProfile = () => {
       <div className="flex justify-center items-center py-16">
         <div>
           <Image
-            src={user}
-            alt="userImage"
             width={200}
             height={200}
+            src={user}
+            alt="userImage"
             className="rounded-full object-cover"
           />
           <h1 className="text-center font-bold text-2xl">Priyanka Das Dipa</h1>
