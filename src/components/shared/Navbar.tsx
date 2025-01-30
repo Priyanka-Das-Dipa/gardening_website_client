@@ -17,7 +17,6 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "@heroui/react";
-
 import { MenuItems } from "@/src/menuItems/MenuItems";
 import { toast } from "sonner";
 import Cookies from "js-cookie";
@@ -30,10 +29,20 @@ import Image from "next/image";
 const NavigateBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { user, isLoading } = useLocalUser();
+  console.log(user);
   const dispatch = useAppDispatch();
+
+  const userEmail = user?.email;
+  console.log("User Email:", userEmail);
+
   const { data: loggedInuser, isSuccess } = useGetUserByEmailQuery(
     `${user?.email}`
   );
+
+  console.log("Fetched User:", loggedInuser);
+  console.log("Query Success:", isSuccess);
+  console.log("from Navbar", loggedInuser);
+
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -92,7 +101,7 @@ const NavigateBar = () => {
                     <div className="relative">
                       <Image
                         src={`${loggedInuser?.data?.profilePhoto || ""}`}
-                        alt={user?.name}
+                        alt="Profile Image"
                         width={300}
                         height={300}
                         className="size-12 rounded-full shadow cursor-pointer"
@@ -102,6 +111,7 @@ const NavigateBar = () => {
                           {/* <MdVerified className="text-primary" size={16} /> */}
                         </span>
                       ) : null}
+                      <p>{loggedInuser?.data.name}</p>
                     </div>
                   )}
                 </DropdownTrigger>

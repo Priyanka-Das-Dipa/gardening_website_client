@@ -1,7 +1,7 @@
 /* eslint-disable padding-line-between-statements */
 /* eslint-disable import/order */
 /* eslint-disable prettier/prettier */
-"use client"
+"use client";
 import {
   createContext,
   Dispatch,
@@ -29,6 +29,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
 
   const handleUser = async () => {
     const user = await getCurrentUser();
+    console.log("from user Provider",user);
     setUser(user);
     setIsLoading(false);
   };

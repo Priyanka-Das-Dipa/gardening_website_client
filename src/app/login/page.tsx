@@ -39,6 +39,7 @@ const LoginPage = () => {
         const user = verifiyToken(res?.data?.data?.accessToken);
 
         dispatch(setUser({ user, token: res?.data?.data?.accessToken }));
+        
         toast.success(res?.data?.message, { id: toastId });
       } else {
         toast.error(

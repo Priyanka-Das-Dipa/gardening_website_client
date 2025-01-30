@@ -7,6 +7,7 @@ import { Tpost } from "@/src/types";
 import Loading from "../../shared/Loading";
 import NoDataFound from "../../shared/NoDataFound";
 import {
+  Divider,
   Table,
   TableBody,
   TableCell,
@@ -27,7 +28,10 @@ const UsersPosts = ({
 
   return (
     <div>
-      <h2 className="font-semibold text-lg md:text-xl my-3">Your Posts</h2>
+      <h2 className="my-5 text-lg md:text-xl text-center font-bold">
+        Your Posts
+      </h2>
+      <Divider className="mb-5" />
       {isLoading ? (
         <Loading />
       ) : post?.length < 1 ? (

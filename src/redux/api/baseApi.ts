@@ -7,17 +7,26 @@ import { RootState } from "../store";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: "http://localhost:5000/api",
-  //   baseUrl: "https://meeting-room-server.vercel.app/api",
 
   credentials: "include",
-  prepareHeaders: (headers, { getState }) => {
+  prepareHeaders: async (headers, { getState }) => {
     const token = (getState() as RootState).auth;
-
+    // const auth = (await cookies()).get("accessToken");
+    // console.log(auth);
     if (token) {
-      headers.set(`authorization`, `Berrer ${token}`);
+      console.log(token);
+      headers.set(`authorization`, `${token.token}`);
     }
     return headers;
   },
+  // prepareHeaders: (headers, { getState }) => {
+  //   const token = (getState() as RootState).auth;
+
+  //   if (token) {
+  //     headers.set(`authorization`, `${token.token}`);
+  //   }
+  //   return headers;
+  // },
 });
 
 export const baseApi = createApi({

@@ -25,15 +25,16 @@ const RegistrationPage = () => {
   const [showPassword, setShowPassword] = useState<boolean>(true);
   const [register, { isLoading }] = useRegisterMutation();
   const [imageFile, setImageFile] = useState<any>();
+  // const [profilePhoto, setProfilePhoto] = useState("");
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log("this is from register", data);
-    // const toastId = toast.loading("Registering...")
     const toastId = toast.loading("Register processing...");
     let profilePhoto;
 
     if (imageFile) {
       profilePhoto = await uploadImageToCloudinary(imageFile);
+      // console.log(imageURL);
+      // setProfilePhoto(imageURL);
     }
     const name = data?.name.trim();
     const registerData = {
@@ -41,6 +42,7 @@ const RegistrationPage = () => {
       name,
       profilePhoto,
     };
+    console.log(registerData);
     const res = (await register(registerData)) as any;
 
     if (res?.data?.success) {
@@ -63,6 +65,7 @@ const RegistrationPage = () => {
   };
 
   const onChangeFile = (file: any) => {
+    console.log(file);
     setImageFile(file[0]);
   };
 
