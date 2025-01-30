@@ -10,7 +10,7 @@ export type TUser = {
   _id: string;
   email: string;
   name: string;
-  role: string;
+  role ?: string;
   iat: number;
   exp: number;
   phoneNumber: string;

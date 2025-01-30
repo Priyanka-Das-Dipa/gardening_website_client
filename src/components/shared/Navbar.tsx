@@ -21,27 +21,24 @@ import { MenuItems } from "@/src/menuItems/MenuItems";
 import { toast } from "sonner";
 import Cookies from "js-cookie";
 import { useLocalUser } from "@/src/context/user.provider";
-import { useAppDispatch } from "@/src/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
 import { useGetUserByEmailQuery } from "@/src/redux/features/auth/auth.api";
 import { logOut } from "@/src/redux/features/auth/authSlice";
 import Image from "next/image";
 
 const NavigateBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const { user, isLoading } = useLocalUser();
-  console.log(user);
+  // const { user, isLoading } = useLocalUser();
+  const user = useAppSelector((state) => state.auth.user);
+  console.log("user navbar", user);
+
   const dispatch = useAppDispatch();
 
-  const userEmail = user?.email;
-  console.log("User Email:", userEmail);
+  // const userEmail = user?.email;
 
-  const { data: loggedInuser, isSuccess } = useGetUserByEmailQuery(
-    `${user?.email}`
-  );
-
-  console.log("Fetched User:", loggedInuser);
-  console.log("Query Success:", isSuccess);
-  console.log("from Navbar", loggedInuser);
+  // const { data: user, isSuccess } = useGetUserByEmailQuery(
+  //   `${user?.email}`
+  // );
 
   const [isClient, setIsClient] = useState(false);
 
@@ -57,7 +54,7 @@ const NavigateBar = () => {
     toast.success("Logout successful", { id: toastId });
   };
 
-  if (!isClient && !isSuccess) {
+  if (!isClient) {
     return null;
   }
 
@@ -97,23 +94,15 @@ const NavigateBar = () => {
             {user ? (
               <Dropdown>
                 <DropdownTrigger>
-                  {!isLoading && (
-                    <div className="relative">
-                      <Image
-                        src={`${loggedInuser?.data?.profilePhoto || ""}`}
-                        alt="Profile Image"
-                        width={300}
-                        height={300}
-                        className="size-12 rounded-full shadow cursor-pointer"
-                      />
-                      {loggedInuser?.data?.verified === true ? (
-                        <span className="absolute -right-2 top-6 size-5 shadow flex items-center justify-center rounded-full bg-gray-300">
-                          {/* <MdVerified className="text-primary" size={16} /> */}
-                        </span>
-                      ) : null}
-                      <p>{loggedInuser?.data.name}</p>
-                    </div>
-                  )}
+                  <div className="relative">
+                    <Image
+                      src={user?.profilePhoto || ""}
+                      alt="Profile Image"
+                      width={300}
+                      height={300}
+                      className="size-12 rounded-full shadow cursor-pointer"
+                    />
+                  </div>
                 </DropdownTrigger>
                 <DropdownMenu className="m-2">
                   <DropdownItem key={""}>
@@ -127,7 +116,7 @@ const NavigateBar = () => {
                         href={`/${user?.role === "ADMIN" ? "admin" : "user"}`}
                       >
                         <Button className="text-center w-full rounded-lg text-black text-md p-2">
-                          Dashborad
+                          Dashboard
                         </Button>
                       </Link>
                     </div>

@@ -29,7 +29,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
 
   const handleUser = async () => {
     const user = await getCurrentUser();
-    console.log("from user Provider",user);
+    console.log("from user Provider", user);
     setUser(user);
     setIsLoading(false);
   };

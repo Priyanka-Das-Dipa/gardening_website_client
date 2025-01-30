@@ -42,7 +42,7 @@ const RegistrationPage = () => {
       name,
       profilePhoto,
     };
-    console.log(registerData);
+
     const res = (await register(registerData)) as any;
 
     if (res?.data?.success) {
@@ -50,7 +50,7 @@ const RegistrationPage = () => {
       Cookies.set("refreshToken", res?.data?.data?.refreshToken);
       Cookies.set("accessToken", res?.data?.data?.accessToken);
       const user = verifiyToken(res?.data?.data?.accessToken);
-
+      console.log("User:53", user);
       dispatch(setUser({ user, token: res?.data?.data?.accessToken }));
       toast.success(res?.data?.message, { id: toastId });
       router.push("/");
