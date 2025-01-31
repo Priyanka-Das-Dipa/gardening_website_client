@@ -1,79 +1,81 @@
-// /* eslint-disable prettier/prettier */
-// "use client";
+/* eslint-disable prettier/prettier */
+"use client";
+import Image from "next/image";
+import user from "@/src/assets/images/user.jpeg";
 
-// import Image from "next/image";
-// import vegetable from "@/src/assets/images/flower.jpeg";
-// import user from "@/src/assets/images/user.jpeg";
+const extractFirstImage = (html: string) => {
+  const imgTagMatch = html.match(/<img[^>]+src="([^">]+)"/);
 
-// const extractFirstImage = (html: string) => {
-//   const imgTagMatch = html.match(/<img[^>]+src="([^">]+)"/);
+  return imgTagMatch ? imgTagMatch[1] : null;
+};
 
-//   return imgTagMatch ? imgTagMatch[1] : null;
-// };
+interface Post {
+  _id: string;
+  title: string;
+  post: string;
+  userId: any;
+  category: {
+    category: string;
+  };
+}
 
-// interface Post {
-//   _id: string;
-//   title: string;
-//   post: string;
-//   userId: any;
-//   category: {
-//     category: string;
-//   };
-// }
+interface PostSection4Props {
+  post: Post;
+}
 
-// interface PostSection4Props {
-//   post: Post;
-// }
+const extractTextFromHTML = (html: string) => {
+  const div = document.createElement("div");
+  div.innerHTML = html;
+  return div.textContent || div.innerText || "";
+};
 
-// const PostCards: React.FC<PostSection4Props> = ({ post }) => {
-//   const firstImage = extractFirstImage(post?.post);
-//   const postOwner = post?.userId;
+const truncateText = (text: string, limit: number) => {
+  return text.length > limit ? text.slice(0, limit) + "..." : text;
+};
 
-//   console.log(firstImage, postOwner);
-//   console.log("this is coming from post page", post);
+const PostCards: React.FC<PostSection4Props> = ({ post }) => {
+  const firstImage = extractFirstImage(post?.post);
+  const postOwner = post?.userId;
+  const plainText = extractTextFromHTML(post?.post);
+  const shortText = truncateText(plainText, 500);
+  console.log("Post Owner", postOwner?.name);
 
-//   return (
-//     <div>
-//       <div className="max-w-3xl w-full bg-white shadow-lg rounded-lg overflow-hidden flex">
-//         <div className="w-1/2">
-//           <Image
-//             width={500}
-//             height={500}
-//             src={vegetable}
-//             alt="Popular Post"
-//             className="w-full h-full object-cover"
-//           />
-//         </div>
-//         <div className="w-2/3 p-4">
-//           <h2 className="text-2xl font-semibold mb-2">Popular Post Title</h2>
-//           <p className="text-gray-700 mb-4">
-//             This is a brief description of the popular post. It gives a preview
-//             of the content. To learn more about this topic, click the read more
-//             button below.
-//           </p>
-//           <button className="text-blue-500 font-medium hover:underline mb-4">
-//             Read More
-//           </button>
-//           <div className="text-sm text-gray-600 mb-4">
-//             <span className="font-semibold">Category:</span> Vegetable
-//           </div>
-//           <div className="flex items-center">
-//             <Image
-//               src={user}
-//               width={30}
-//               height={30}
-//               alt="Author"
-//               className="w-14 h-14 rounded-full mr-3"
-//             />
-//             <div className="text-sm">
-//               <p className="font-medium">John Doe</p>
-//               <p className="text-gray-500">Jan 20, 2025</p>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
+  console.log("From Category page", firstImage, postOwner);
 
-// export default PostCards;
+  return (
+    <div>
+      <div className="max-w-3xl w-full bg-white shadow-lg rounded-lg overflow-hidden flex">
+        <div className="w-full p-4">
+          <h2 className="text-2xl font-semibold mb-2">{post?.title}</h2>
+          <p className="text-gray-700 mb-4">{shortText}</p>
+          {plainText.length > 100 && (
+            <button className="text-blue-500 font-medium hover:underline mb-4">
+              Read More
+            </button>
+          )}
+          <div className="text-sm text-gray-600 mb-4">
+            <span className="font-semibold">Category:</span>{" "}
+            {post?.category?.category}
+          </div>
+          <div className="flex items-center">
+            <Image
+              src={postOwner?.profilePhoto || user}
+              width={30}
+              height={30}
+              alt="Author"
+              className="w-14 h-14 rounded-full mr-3"
+            />
+            <div className="text-sm">
+              <p className="font-medium">{postOwner?.name}</p>
+              <p className="text-gray-500">
+                {new Date(postOwner?.createdAt).toLocaleDateString()}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PostCards;
