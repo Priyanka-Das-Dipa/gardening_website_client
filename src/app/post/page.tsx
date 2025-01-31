@@ -2,14 +2,17 @@
 
 import AllPost from "@/src/components/pages/posts/AllPost";
 import PostBanner from "@/src/components/pages/posts/PostBanner";
+import { useGetAllPostQuery } from "@/src/redux/features/post/post.api";
 
-const page = () => {
+const Postpage = () => {
+  // const {data} = useGetAllPostQuery()
+  // console.log(data);
   return (
     <div>
-      <PostBanner/>
+      {/* <PostBanner/> */}
       <AllPost />
     </div>
   );
 };
 
-export default page;
+export default Postpage;

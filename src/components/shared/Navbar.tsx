@@ -30,7 +30,7 @@ const NavigateBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   // const { user, isLoading } = useLocalUser();
   const user = useAppSelector((state) => state.auth.user);
-  console.log("user navbar", user);
+  // console.log("user navbar", user);
 
   const dispatch = useAppDispatch();
 

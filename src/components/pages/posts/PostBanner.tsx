@@ -3,40 +3,60 @@
 /* eslint-disable prettier/prettier */
 "use client";
 import { Input, Select, SelectItem } from "@heroui/react";
-import Image from "next/image";
-import banner from "@/src/assets/images/postBanner.jpg";
+import { useGetCategoryQuery } from "@/src/redux/features/category/category.api";
+import { useEffect } from "react";
 
-export const animals = [
-  { key: "cat", label: "Cat" },
-  { key: "dog", label: "Dog" },
-  { key: "elephant", label: "Elephant" },
-  { key: "lion", label: "Lion" },
-  { key: "tiger", label: "Tiger" },
-  { key: "giraffe", label: "Giraffe" },
-  { key: "dolphin", label: "Dolphin" },
-  { key: "penguin", label: "Penguin" },
-  { key: "zebra", label: "Zebra" },
-  { key: "shark", label: "Shark" },
-  { key: "whale", label: "Whale" },
-  { key: "otter", label: "Otter" },
-  { key: "crocodile", label: "Crocodile" },
-];
-const PostBanner = () => {
+const PostBanner = ({
+  setSearchTerm,
+  setCategory,
+  setPremium,
+  srcValue,
+  category,
+}: {
+  category: string;
+  srcValue: string;
+  setSearchTerm: any;
+  setCategory: any;
+  setPremium: any;
+}) => {
+  const { data, isLoading } = useGetCategoryQuery({});
+  const categories = data?.data;
+
+  console.log(categories);
+
+  useEffect(() => {
+    setPremium(false);
+  }, [srcValue, category]);
+
   return (
     <div className="container mx-auto py-1">
       <div className=" ">
         <div className="flex justify-center items-center">
           <Input
+            onChange={(e) => setSearchTerm(e.target.value)}
             type="text"
             className="w-full max-w-lg p-3 rounded-lg row-span-2 text-gray-800"
             placeholder="Search posts..."
           />
         </div>
         <div className="flex justify-center items-center">
-          <Select className="max-w-xs" label="Select a category">
-            {animals.map((animal) => (
-              <SelectItem key={animal.key}>{animal.label}</SelectItem>
-            ))}
+          <Select
+            isDisabled={isLoading}
+            label="Select an animal"
+            size="sm"
+            className="max-w-xs"
+            onChange={(e: any) => setCategory(e.target.value)}
+          >
+            <SelectItem key={""} value="">
+              All
+            </SelectItem>
+            {categories?.map(
+              (category: { category: string; image: string; _id: string }) => (
+                <SelectItem key={category?._id} value={category?._id}>
+                  {category?.category}
+                </SelectItem>
+              )
+            )}
           </Select>
         </div>
       </div>
