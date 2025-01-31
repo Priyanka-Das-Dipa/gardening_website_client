@@ -14,6 +14,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useDebounce } from "@/src/hooks/useDebounce";
 import { useGetAllPostQuery } from "@/src/redux/features/post/post.api";
+import Link from "next/link";
 
 const MainFeedBackPage = () => {
   const [srcValue, setSearchTerm] = useState<string>("");
@@ -60,9 +61,11 @@ const MainFeedBackPage = () => {
                   preview of the content. To learn more about this topic, click
                   the read more button below.
                 </p>
-                <button className="text-blue-500 font-medium hover:underline mb-4">
-                  Read More
-                </button>
+                <Link href={`/post/${item?._id}`}>
+                  <button className="text-blue-500 font-medium hover:underline mb-4">
+                    Read More
+                  </button>
+                </Link>
                 <div className="text-sm text-gray-600 mb-4">
                   <span className="font-semibold">Category:</span>{" "}
                   {item?.category?.category}

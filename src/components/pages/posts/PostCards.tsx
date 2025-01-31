@@ -8,7 +8,7 @@ import user from "@/src/assets/images/user.jpeg";
 
 const extractFirstImage = (html: string) => {
   const imgTagMatch = html.match(/<img[^>]+src="([^">]+)"/);
-
+  console.log("Image Tag Match", imgTagMatch);
   return imgTagMatch ? imgTagMatch[1] : null;
 };
 
@@ -41,9 +41,9 @@ const PostCards: React.FC<PostSection4Props> = ({ post }) => {
   const postOwner = post?.userId;
   const plainText = extractTextFromHTML(post?.post);
   const shortText = truncateText(plainText, 400);
-  console.log("Post Owner", postOwner?.name);
+  // console.log("Post Owner", postOwner?.name);
 
-  console.log("From Category page", firstImage, postOwner);
+  // console.log("From Category page", firstImage, postOwner);
 
   return (
     <div>
@@ -57,7 +57,7 @@ const PostCards: React.FC<PostSection4Props> = ({ post }) => {
             </button>
           )}
           <div className="text-sm text-gray-600 mb-4">
-            <span className="font-semibold">Category:</span>{" "}
+            <span className="font-semibold">Category:</span>
             {post?.category?.category}
           </div>
           <div className="flex items-center">
@@ -71,7 +71,9 @@ const PostCards: React.FC<PostSection4Props> = ({ post }) => {
             <div className="text-sm">
               <p className="font-medium">{postOwner?.name}</p>
               <p className="text-gray-500">
-                {new Date(postOwner?.createdAt).toISOString().split("T")[0]}
+                {postOwner?.createdAt
+                  ? new Date(postOwner.createdAt).toDateString()
+                  : "N/A"}
               </p>
             </div>
           </div>

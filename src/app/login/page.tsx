@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable import/order */
 /* eslint-disable prettier/prettier */
-"use client"
+"use client";
 import GForm from "@/src/components/allInputs/Form";
 import GInput from "@/src/components/allInputs/Input";
 import { useLogInMutation } from "@/src/redux/features/auth/auth.api";
@@ -39,7 +39,7 @@ const LoginPage = () => {
         const user = verifiyToken(res?.data?.data?.accessToken);
 
         dispatch(setUser({ user, token: res?.data?.data?.accessToken }));
-        
+
         toast.success(res?.data?.message, { id: toastId });
       } else {
         toast.error(
@@ -97,7 +97,7 @@ const LoginPage = () => {
                   />
                 )}
               </div>
-              
+
               <Button className="w-full bg-green-700 text-white" type="submit">
                 Login
               </Button>
@@ -111,7 +111,6 @@ const LoginPage = () => {
                 Create Account
               </Link>
             </div>
-            
           </div>
         </div>
       )}

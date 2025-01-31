@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable import/order */
 /* eslint-disable prettier/prettier */
 "use client";
@@ -10,7 +11,7 @@ import { useAppSelector } from "@/src/redux/hooks";
 // const stripePromise = loadStripe(process.env.NEXT_Publishable_Key as string);
 const ProfilePage = () => {
   const user = useAppSelector((state) => state.auth.user);
-  const { data: postData } = useGetPostByUserIdQuery(`${user?._id}`);
+  const { data: postData, isLoading } = useGetPostByUserIdQuery(`${user?._id}`);
   const { data } = useGetUserByEmailQuery(`${user?.email}`);
   const userData = data?.data;
   const post = postData?.data;
@@ -50,7 +51,7 @@ const ProfilePage = () => {
             </div>
           </div>
           <div className="flex-1 rounded-md md:border-l p-2 md:p-5">
-            <UsersPosts postData={post} />
+            <UsersPosts postData={post} isLoading={isLoading} />
           </div>
         </div>
       </div>
