@@ -116,7 +116,7 @@ const UserAllPosts = () => {
                         </TableCell>
                         <TableCell className="flex justify-center gap-4">
                           <EditPostModal post={item} />
-                          <Button onClick={() => handleDeletePost(item?._id)}>
+                          <Button onPress={() => handleDeletePost(item?._id)}>
                             Delete
                           </Button>
                         </TableCell>
