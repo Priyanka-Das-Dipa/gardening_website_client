@@ -19,11 +19,12 @@ const AllPost = () => {
     category,
     premium,
   });
+
   console.log(data?.data);
 
   return (
     <>
-      <div className="container mx-auto pt-12">
+      <div className="container mx-auto py-12">
         <div className="py-2">
           <h1 className=" text-3xl "> All Recent Post</h1>
           <hr className=" w-[200px] h-1 bg-green-600 " />
@@ -34,15 +35,7 @@ const AllPost = () => {
               key={idex}
               className="max-w-3xl w-full bg-white shadow-lg rounded-lg overflow-hidden flex"
             >
-              <div className="w-1/2">
-                {/* <Image
-                width={500}
-                height={500}
-                src={}
-                alt="Popular Post"
-                className="w-full h-full object-cover"
-              /> */}
-              </div>
+              <div className="w-1/2">{/* Image component */}</div>
               <div className="w-2/3 p-4">
                 <h2 className="text-2xl font-semibold mb-2">{item?.title}</h2>
                 <p className="text-gray-700 mb-4">
@@ -59,7 +52,7 @@ const AllPost = () => {
                 </div>
                 <div className="flex items-center">
                   <Image
-                    src={item?.userId?.profilePhoto}
+                    src={item?.userId?.profilePhoto || "/user.jpeg"}
                     width={30}
                     height={30}
                     alt="Author"

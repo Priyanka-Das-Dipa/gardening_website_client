@@ -46,8 +46,8 @@ const GForm = ({
     <div>
       <FormProvider {...methods}>
         <form
-          onSubmit={methods.handleSubmit(submitForm)}
           className={className && className}
+          onSubmit={methods.handleSubmit(submitForm)}
         >
           {children}
         </form>

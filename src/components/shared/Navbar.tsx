@@ -20,9 +20,7 @@ import {
 import { MenuItems } from "@/src/menuItems/MenuItems";
 import { toast } from "sonner";
 import Cookies from "js-cookie";
-import { useLocalUser } from "@/src/context/user.provider";
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
-import { useGetUserByEmailQuery } from "@/src/redux/features/auth/auth.api";
 import { logOut } from "@/src/redux/features/auth/authSlice";
 import Image from "next/image";
 
@@ -60,7 +58,7 @@ const NavigateBar = () => {
 
   return (
     <div>
-      <Navbar onMenuOpenChange={setIsMenuOpen} className="shadow-lg">
+      <Navbar className="shadow-lg" onMenuOpenChange={setIsMenuOpen}>
         <div className="flex justify-between w-full  items-center px-3 lg:px-0">
           {/* toggle and Icon */}
           <NavbarContent>
@@ -96,11 +94,11 @@ const NavigateBar = () => {
                 <DropdownTrigger>
                   <div className="relative">
                     <Image
-                      src={user?.profilePhoto || ""}
                       alt="Profile Image"
-                      width={300}
-                      height={300}
                       className="size-12 rounded-full shadow cursor-pointer"
+                      height={300}
+                      src={user?.profilePhoto || "/user.JPEG"}
+                      width={300}
                     />
                   </div>
                 </DropdownTrigger>
@@ -132,7 +130,7 @@ const NavigateBar = () => {
             ) : (
               <NavbarItem>
                 <Button className="bg-green-600">
-                  <Link href="/login" className="text-black">
+                  <Link className="text-black" href="/login">
                     Login
                   </Link>
                 </Button>
@@ -145,6 +143,7 @@ const NavigateBar = () => {
             {MenuItems.map((item, index) => (
               <NavbarMenuItem key={`${item}-${index}`}>
                 <Link
+                  className="w-full"
                   color={
                     index === 2
                       ? "primary"
@@ -152,7 +151,6 @@ const NavigateBar = () => {
                         ? "danger"
                         : "foreground"
                   }
-                  className="w-full"
                   href={`/${item?.url}`}
                   size="lg"
                 >

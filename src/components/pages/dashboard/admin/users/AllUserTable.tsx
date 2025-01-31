@@ -111,7 +111,7 @@ const AllUserTable = () => {
               <TableCell>
                 <div className="flex gap-2">
                   <Button onPress={() => handleDelete(user._id)}>Delete</Button>
-                  <Button onPress={() => handleUser(user?._id)} color="primary">
+                  <Button color="primary" onPress={() => handleUser(user?._id)}>
                     {user?.role === "ADMIN" ? "Make User" : "Make Admin"}
                   </Button>
                 </div>

@@ -16,7 +16,7 @@ const Mission = () => {
           {/* Top-right: Image */}
           <div className="">
             <Image
-              src={`${mission}`}
+              src={mission}
               width={300}
               height={300}
               alt="Top-right Image"

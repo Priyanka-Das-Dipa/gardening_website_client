@@ -1,4 +1,7 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable padding-line-between-statements */
+/* eslint-disable import/order */
+/* eslint-disable prettier/prettier */
 "use client";
 import Image from "next/image";
 import user from "@/src/assets/images/user.jpeg";
@@ -37,7 +40,7 @@ const PostCards: React.FC<PostSection4Props> = ({ post }) => {
   const firstImage = extractFirstImage(post?.post);
   const postOwner = post?.userId;
   const plainText = extractTextFromHTML(post?.post);
-  const shortText = truncateText(plainText, 500);
+  const shortText = truncateText(plainText, 400);
   console.log("Post Owner", postOwner?.name);
 
   console.log("From Category page", firstImage, postOwner);
@@ -59,16 +62,16 @@ const PostCards: React.FC<PostSection4Props> = ({ post }) => {
           </div>
           <div className="flex items-center">
             <Image
-              src={postOwner?.profilePhoto || user}
-              width={30}
-              height={30}
               alt="Author"
               className="w-14 h-14 rounded-full mr-3"
+              height={30}
+              src={postOwner?.profilePhoto || user}
+              width={30}
             />
             <div className="text-sm">
               <p className="font-medium">{postOwner?.name}</p>
               <p className="text-gray-500">
-                {new Date(postOwner?.createdAt).toLocaleDateString()}
+                {new Date(postOwner?.createdAt).toISOString().split("T")[0]}
               </p>
             </div>
           </div>

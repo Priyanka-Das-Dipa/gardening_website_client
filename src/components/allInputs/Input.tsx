@@ -32,16 +32,16 @@ const GInput = ({
     <div>
       <Input
         {...register(name)}
+        className={clasName && clasName}
         defaultValue={defaultValue ? defaultValue : ""}
+        errorMessage={errors[name] ? (errors[name].message as string) : ""}
+        isDisabled={isDisabled}
+        isInvalid={!!errors[name]}
+        isRequired={isRequired}
+        label={label}
         size={size}
         type={type}
-        isDisabled={isDisabled}
-        label={label}
         variant={variant}
-        isRequired={isRequired}
-        className={clasName && clasName}
-        errorMessage={errors[name] ? (errors[name].message as string) : ""}
-        isInvalid={!!errors[name]}
       />
     </div>
   );

@@ -1,14 +1,9 @@
 /* eslint-disable import/order */
 /* eslint-disable prettier/prettier */
 "use client";
-import { useLocalUser } from "@/src/context/user.provider";
 import { useGetUserByEmailQuery } from "@/src/redux/features/auth/auth.api";
 import { useGetPostByUserIdQuery } from "@/src/redux/features/post/post.api";
-import { Tpost } from "@/src/types";
-import { loadStripe } from "@stripe/stripe-js";
-import Loading from "../../shared/Loading";
 import Image from "next/image";
-import moment from "moment";
 import UsersPosts from "./UsersPosts";
 import { useAppSelector } from "@/src/redux/hooks";
 
@@ -20,10 +15,6 @@ const ProfilePage = () => {
   const userData = data?.data;
   const post = postData?.data;
 
-  // const isUpVotesTrue = post?.some(
-  //   (item: Tpost) => item.upVotes > item?.downVotes
-  // );
-
   return (
     <>
       <div className="container mx-auto">
@@ -32,11 +23,11 @@ const ProfilePage = () => {
             <div className="flex flex-col">
               <div className="flex justify-center items-center mt-5">
                 <Image
-                  src={`${user?.profilePhoto || ""}`}
                   alt="user Image"
-                  width={400}
-                  height={500}
                   className="md:size-[250px] size-[150px] object-bottom rounded-full border-2 p-2 shadow-lg"
+                  height={500}
+                  src={user?.profilePhoto || "/user.JPEG"}
+                  width={400}
                 />
               </div>
               {/* more info */}
@@ -54,24 +45,12 @@ const ProfilePage = () => {
                   <span className="text-sm md:text-lg font-medium">
                     Phone: {user?.phoneNumber}
                   </span>
-                  {/* <h5 className="text-sm md:text-lg font-medium">
-                    Address: {user?.address}
-                  </h5> */}
-                  {/* <span className="text-sm md:text-lg font-medium">
-                    Follower: {user?.follower?.length}
-                  </span>
-                  <span className="text-sm md:text-lg font-medium">
-                    Following: {user?.following?.length}
-                  </span>
-                  <span className="text-sm md:text-lg font-semibold">
-                    Joined: {moment(user?.createdAt).format("MMM Do YY")}
-                  </span> */}
                 </div>
               </div>
             </div>
           </div>
           <div className="flex-1 rounded-md md:border-l p-2 md:p-5">
-            {/* <UsersPosts postData={post} /> */}
+            <UsersPosts postData={post} />
           </div>
         </div>
       </div>

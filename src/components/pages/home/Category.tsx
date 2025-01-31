@@ -44,10 +44,10 @@ const Category = () => {
             >
               <Image
                 alt="Category Image"
+                className="object-cover w-full h-full"
+                height={500}
                 src={item?.image || "/culinary.JPG"}
                 width={500}
-                height={500}
-                className="object-cover w-full h-full"
               />
               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 flex items-center justify-center text-white font-bold text-3xl">
                 {item?.category || "Category"}

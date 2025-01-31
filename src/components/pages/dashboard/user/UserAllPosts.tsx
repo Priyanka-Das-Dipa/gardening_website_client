@@ -108,8 +108,8 @@ const UserAllPosts = () => {
                         </TableCell>
                         <TableCell>
                           <Link
-                            href={`/post/${item?._id}`}
                             className="bg-gray-100 px-2 py-1 rounded-md hover:bg-gray-300"
+                            href={`/post/${item?._id}`}
                           >
                             View
                           </Link>

@@ -1,9 +1,5 @@
 "use client";
 
-import { useLocalUser } from "@/src/context/user.provider";
-import { useCreateCategoryMutation } from "@/src/redux/features/category/category.api";
-import { uploadImageToCloudinary } from "@/src/utilis/uploadImageToCLudinary";
-
 import {
   Button,
   Input,
@@ -16,6 +12,10 @@ import {
 } from "@heroui/react";
 import React, { useState } from "react";
 import { toast } from "sonner";
+
+import { useLocalUser } from "@/src/context/user.provider";
+import { useCreateCategoryMutation } from "@/src/redux/features/category/category.api";
+import { uploadImageToCloudinary } from "@/src/utilis/uploadImageToCLudinary";
 
 const CreateCategory = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -54,7 +54,7 @@ const CreateCategory = () => {
   return (
     <div className="flex-1">
       <Button
-        onPress={onOpen}
+        className="min-fit px-4 py-6 bg-secondary text-white"
         isDisabled={
           user?.role === "ADMIN"
             ? false
@@ -62,7 +62,7 @@ const CreateCategory = () => {
               ? false
               : true
         }
-        className="min-fit px-4 py-6 bg-secondary text-white"
+        onPress={onOpen}
       >
         Create a new Category?
       </Button>
@@ -80,24 +80,24 @@ const CreateCategory = () => {
                   onChange={(e) => setCategory(e.target.value)}
                 />
                 <label
-                  htmlFor="categoryimage"
                   className="mt-3 rounded-lg block border p-3 cursor-pointer"
+                  htmlFor="categoryimage"
                 >
                   image suggested(400*250) px
                 </label>
                 <Input
+                  className="hidden"
+                  id="categoryimage"
                   isInvalid={!file}
                   type="file"
-                  id="categoryimage"
-                  className="hidden"
                   onChange={(e: any) => setFile(e.target.files[0])}
                 />
                 <Button
-                  color="primary"
-                  onPress={onClose}
-                  onClick={handleCreateCategory}
                   className="mt-5"
+                  color="primary"
                   isDisabled={!categroy}
+                  onClick={handleCreateCategory}
+                  onPress={onClose}
                 >
                   Create
                 </Button>

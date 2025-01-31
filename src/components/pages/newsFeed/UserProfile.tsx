@@ -2,7 +2,6 @@
 /* eslint-disable import/order */
 /* eslint-disable prettier/prettier */
 "use client";
-import user from "@/src/assets/images/user.jpeg";
 import Image from "next/image";
 import { SlUserFollowing } from "react-icons/sl";
 import { GiShadowFollower } from "react-icons/gi";
@@ -17,11 +16,11 @@ const UserProfile = () => {
       <div className="flex justify-center items-center py-16">
         <div>
           <Image
-            width={200}
-            height={200}
-            src={`${user?.profilePhoto || ""}`}
             alt="userImage"
             className="rounded-full size-48 object-cover"
+            height={200}
+            src={`${user?.profilePhoto || ""}`}
+            width={200}
           />
           <h1 className="text-center font-bold text-2xl">{user?.name}</h1>
           <p className="text-center text-lg py-1">

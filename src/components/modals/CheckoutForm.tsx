@@ -106,9 +106,9 @@ const CheckoutForm = ({
   return (
     <div>
       <Button
-        onPress={onOpen}
-        isDisabled={!isUpVotesTrue}
         className={btnClass && btnClass}
+        isDisabled={!isUpVotesTrue}
+        onPress={onOpen}
       >
         Verifiy
       </Button>
@@ -123,11 +123,11 @@ const CheckoutForm = ({
                 <form onSubmit={handleSubmit}>
                   <CardElement />
                   <Button
+                    className="w-full mt-4"
+                    disabled={!stripe}
                     size="md"
                     type="submit"
-                    disabled={!stripe}
                     onPress={onClose}
-                    className="w-full mt-4"
                   >
                     Pay & Get Verified
                   </Button>

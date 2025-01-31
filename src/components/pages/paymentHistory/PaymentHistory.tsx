@@ -34,9 +34,9 @@ const PaymentHistory = () => {
               <TableCell>
                 <div className="flex items-center space-x-3">
                   <Avatar
-                    src={payment.userId.profilePhoto}
                     alt="Profile"
                     size="sm"
+                    src={payment.userId.profilePhoto}
                   />
                   <div>
                     <p className="font-medium">{payment.userId.name}</p>

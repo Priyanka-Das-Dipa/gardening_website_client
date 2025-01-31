@@ -5,7 +5,6 @@
 /* eslint-disable prettier/prettier */
 "use client";
 
-import NoDataFound from "../../shared/NoDataFound";
 import UserProfile from "./UserProfile";
 import user from "@/src/assets/images/user.jpeg";
 import vegetable from "@/src/assets/images/vagitable.jpeg";
@@ -27,6 +26,7 @@ const MainFeedBackPage = () => {
     category,
     premium,
   });
+
   console.log(data?.data);
 
   return (
@@ -69,7 +69,7 @@ const MainFeedBackPage = () => {
                 </div>
                 <div className="flex items-center">
                   <Image
-                    src={item?.userId?.profilePhoto}
+                    src={item?.userId?.profilePhoto || "/user.jpeg"}
                     width={30}
                     height={30}
                     alt="Author"

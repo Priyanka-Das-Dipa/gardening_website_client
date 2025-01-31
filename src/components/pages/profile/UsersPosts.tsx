@@ -26,6 +26,8 @@ const UsersPosts = ({
 }) => {
   const post = postData;
 
+  console.log("Post Data", post);
+
   return (
     <div>
       <h2 className="my-5 text-lg md:text-xl text-center font-bold">

@@ -31,11 +31,11 @@ const Experiance = () => {
         </div>
         <div className=" flex justify-center items-center">
           <Image
-            src={left}
             alt="leaf_image"
-            width={120}
-            height={120}
             className="object-contain" // Ensure the image fits within the container
+            height={120}
+            src={left}
+            width={120}
           />
         </div>
         <div className="p-6 text-center relative ">
@@ -53,11 +53,11 @@ const Experiance = () => {
         </div>
         <div className=" flex justify-center items-center">
           <Image
-            src={right}
             alt="leaf_image"
-            width={120}
-            height={120}
             className="object-contain"
+            height={120}
+            src={right}
+            width={120}
           />
         </div>
         <div className="p-6 text-center relative ">

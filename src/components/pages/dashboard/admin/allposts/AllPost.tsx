@@ -28,7 +28,7 @@ import Swal from "sweetalert2";
 const AllPost = () => {
   const [deletePost] = useDeletePostMutation();
 
-  const { user, isLoading } = useLocalUser();
+  // const { user, isLoading } = useLocalUser();
   const { data: postData } = useGetAllPostQuery({});
   const post = postData?.data;
 

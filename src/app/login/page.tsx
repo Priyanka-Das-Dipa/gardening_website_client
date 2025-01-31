@@ -74,16 +74,16 @@ const LoginPage = () => {
               <p className="text-sm">Hi, Welcome Back👏</p>
             </div>
             <GForm
-              onSubmit={onSubmit}
               className="mt-6 space-y-5"
               resolver={zodResolver(loginValidationSchema)}
+              onSubmit={onSubmit}
             >
-              <GInput type="email" label="Email" name="email" clasName="" />
+              <GInput clasName="" label="Email" name="email" type="email" />
               <div className="relative">
                 <GInput
-                  type={showPassword ? "password" : "text"}
                   label="Password"
                   name="password"
+                  type={showPassword ? "password" : "text"}
                 />
                 {showPassword ? (
                   <FaEyeSlash

@@ -28,22 +28,22 @@ const Footer = () => {
               <h3 className="text-xl font-semibold text-white mb-4">Explore</h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="/posts" className="hover:text-white">
+                  <a className="hover:text-white" href="/posts">
                     Top Posts
                   </a>
                 </li>
                 <li>
-                  <a href="/about" className="hover:text-white">
+                  <a className="hover:text-white" href="/about">
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href="/contact" className="hover:text-white">
+                  <a className="hover:text-white" href="/contact">
                     Contact us
                   </a>
                 </li>
                 <li>
-                  <a href="/privacy-policy" className="hover:text-white">
+                  <a className="hover:text-white" href="/privacy-policy">
                     Privacy Policy
                   </a>
                 </li>
@@ -57,26 +57,26 @@ const Footer = () => {
               </h3>
               <div className="flex space-x-4 mb-6">
                 <a
-                  href="https://facebook.com"
                   className="text-gray-400 hover:text-white"
+                  href="https://facebook.com"
                 >
                   <FaFacebookF size={24} />
                 </a>
                 <a
-                  href="https://twitter.com"
                   className="text-gray-400 hover:text-white"
+                  href="https://twitter.com"
                 >
                   <FaTwitter size={24} />
                 </a>
                 <a
-                  href="https://instagram.com"
                   className="text-gray-400 hover:text-white"
+                  href="https://instagram.com"
                 >
                   <FaInstagram size={24} />
                 </a>
                 <a
-                  href="https://linkedin.com"
                   className="text-gray-400 hover:text-white"
+                  href="https://linkedin.com"
                 >
                   <FaLinkedinIn size={24} />
                 </a>

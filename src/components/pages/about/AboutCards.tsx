@@ -56,7 +56,7 @@ const AboutCards = () => {
           />
           <div className="p-6">
             <div className="flex justify-center mb-4">
-              <i className="text-4xl text-blue-500 fas fa-bullseye"></i>{" "}
+              <i className="text-4xl text-blue-500 fas fa-bullseye" />{" "}
               {/* Replace with your icon */}
             </div>
             <h3 className="text-2xl font-semibold text-center mb-2">
@@ -80,7 +80,7 @@ const AboutCards = () => {
           />
           <div className="p-6">
             <div className="flex justify-center mb-4">
-              <i className="text-4xl text-blue-500 fas fa-heart"></i>{" "}
+              <i className="text-4xl text-blue-500 fas fa-heart" />{" "}
               {/* Replace with your icon */}
             </div>
             <h3 className="text-2xl font-semibold text-center mb-2">
@@ -104,7 +104,7 @@ const AboutCards = () => {
           />
           <div className="p-6">
             <div className="flex justify-center mb-4">
-              <i className="text-4xl text-blue-500 fas fa-users"></i>{" "}
+              <i className="text-4xl text-blue-500 fas fa-users" />{" "}
               {/* Replace with your icon */}
             </div>
             <h3 className="text-2xl font-semibold text-center mb-2">
@@ -128,7 +128,7 @@ const AboutCards = () => {
           />
           <div className="p-6">
             <div className="flex justify-center mb-4">
-              <i className="text-4xl text-blue-500 fas fa-eye"></i>{" "}
+              <i className="text-4xl text-blue-500 fas fa-eye" />{" "}
               {/* Replace with your icon */}
             </div>
             <h3 className="text-2xl font-semibold text-center mb-2">

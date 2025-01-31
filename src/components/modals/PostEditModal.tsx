@@ -83,9 +83,9 @@ export default function EditPostModal({ post }: { post?: Tpost }) {
     <>
       <Button onPress={onOpen}>Edit</Button>
       <Modal
+        className="p-0 max-w-[900px] overflow-scroll max-h-[750px]"
         isOpen={isOpen}
         onOpenChange={onOpenChange}
-        className="p-0 max-w-[900px] overflow-scroll max-h-[750px]"
       >
         <ModalContent className="py-0 m-0 max-w-[1200px]">
           {(onClose) => (
@@ -96,24 +96,24 @@ export default function EditPostModal({ post }: { post?: Tpost }) {
               <ModalBody>
                 <div className="pb-10 px-2 md:px-0">
                   <GForm
-                    onSubmit={handleSubmit}
                     resolver={zodResolver(postValidation)}
+                    onSubmit={handleSubmit}
                   >
                     <GInput
+                      clasName="mb-0"
+                      defaultValue={post?.title}
                       label="Post Title"
                       name="title"
-                      clasName="mb-0"
                       size="sm"
-                      defaultValue={post?.title}
                     />
                     <div className="flex md:gap-2 w-full justify-start flex-col gap-4 mb-2 mt-1">
                       <div className="flex min-w-[120px] md:min-w-[500px] flex-wrap md:flex-nowrap gap-4">
                         <Select
+                          className="max-w-xs"
                           isDisabled={isLoading}
                           label="Select an animal"
                           selectedKeys={[post?.category?._id] as any}
                           size="sm"
-                          className="max-w-xs"
                           onChange={(e: any) => setCategory(e.target.value)}
                         >
                           {categories?.map(
@@ -134,24 +134,24 @@ export default function EditPostModal({ post }: { post?: Tpost }) {
                     <div className="overflow-y-scroll max-h-[600px]">
                       <JoditEditor
                         ref={editor}
-                        value={content ? content : post?.post!}
                         config={config as any} // tabIndex of textarea
+                        value={content ? content : post?.post!}
                         onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
                         // onChange={newContent => { console.log(newContent) }}
                       />
                     </div>
                     <Button
-                      type="submit"
                       className="mt-4 bg-secondary text-white"
+                      type="submit"
                     >
                       Submit Post
                     </Button>
                   </GForm>
                 </div>
                 <Button
+                  className="bg-primary text-white"
                   color="primary"
                   variant="light"
-                  className="bg-primary text-white"
                   onPress={onClose}
                 >
                   Close

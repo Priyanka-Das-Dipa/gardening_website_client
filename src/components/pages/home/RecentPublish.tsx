@@ -23,11 +23,11 @@ const RecentPublish = () => {
           {/* Left side: Image */}
           <div className="w-1/2">
             <Image
-              width={500}
-              height={500}
-              src={vegetable} // Replace with your image
               alt="Popular Post"
               className="w-full h-full object-cover"
+              height={500}
+              src={vegetable} // Replace with your image
+              width={500}
             />
           </div>
 
@@ -56,11 +56,11 @@ const RecentPublish = () => {
             {/* Author Profile */}
             <div className="flex items-center">
               <Image
-                src={user} // Replace with author profile image
-                width={30}
-                height={30}
                 alt="Author"
                 className="w-14 h-14 rounded-full mr-3"
+                height={30}
+                src={user} // Replace with author profile image
+                width={30}
               />
               <div className="text-sm">
                 <p className="font-medium">John Doe</p>
@@ -73,11 +73,11 @@ const RecentPublish = () => {
           {/* Left side: Image */}
           <div className="w-1/2">
             <Image
-              width={500}
-              height={500}
-              src={vegetable} // Replace with your image
               alt="Popular Post"
               className="w-full h-full object-cover"
+              height={500}
+              src={vegetable} // Replace with your image
+              width={500}
             />
           </div>
 
@@ -106,11 +106,11 @@ const RecentPublish = () => {
             {/* Author Profile */}
             <div className="flex items-center">
               <Image
-                src={user} // Replace with author profile image
-                width={30}
-                height={30}
                 alt="Author"
                 className="w-14 h-14 rounded-full mr-3"
+                height={30}
+                src={user} // Replace with author profile image
+                width={30}
               />
               <div className="text-sm">
                 <p className="font-medium">John Doe</p>
@@ -123,11 +123,11 @@ const RecentPublish = () => {
           {/* Left side: Image */}
           <div className="w-1/2">
             <Image
-              width={500}
-              height={500}
-              src={vegetable} // Replace with your image
               alt="Popular Post"
               className="w-full h-full object-cover"
+              height={500}
+              src={vegetable} // Replace with your image
+              width={500}
             />
           </div>
 
@@ -156,11 +156,11 @@ const RecentPublish = () => {
             {/* Author Profile */}
             <div className="flex items-center">
               <Image
-                src={user} // Replace with author profile image
-                width={30}
-                height={30}
                 alt="Author"
                 className="w-14 h-14 rounded-full mr-3"
+                height={30}
+                src={user} // Replace with author profile image
+                width={30}
               />
               <div className="text-sm">
                 <p className="font-medium">John Doe</p>
@@ -173,11 +173,11 @@ const RecentPublish = () => {
           {/* Left side: Image */}
           <div className="w-1/2">
             <Image
-              width={500}
-              height={500}
-              src={vegetable} // Replace with your image
               alt="Popular Post"
               className="w-full h-full object-cover"
+              height={500}
+              src={vegetable} // Replace with your image
+              width={500}
             />
           </div>
 
@@ -206,11 +206,11 @@ const RecentPublish = () => {
             {/* Author Profile */}
             <div className="flex items-center">
               <Image
-                src={user} // Replace with author profile image
-                width={30}
-                height={30}
                 alt="Author"
                 className="w-14 h-14 rounded-full mr-3"
+                height={30}
+                src={user} // Replace with author profile image
+                width={30}
               />
               <div className="text-sm">
                 <p className="font-medium">John Doe</p>

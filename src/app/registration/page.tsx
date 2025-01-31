@@ -50,7 +50,7 @@ const RegistrationPage = () => {
       Cookies.set("refreshToken", res?.data?.data?.refreshToken);
       Cookies.set("accessToken", res?.data?.data?.accessToken);
       const user = verifiyToken(res?.data?.data?.accessToken);
-      console.log("User:53", user);
+      
       dispatch(setUser({ user, token: res?.data?.data?.accessToken }));
       toast.success(res?.data?.message, { id: toastId });
       router.push("/");
@@ -65,7 +65,6 @@ const RegistrationPage = () => {
   };
 
   const onChangeFile = (file: any) => {
-    console.log(file);
     setImageFile(file[0]);
   };
 
@@ -79,24 +78,24 @@ const RegistrationPage = () => {
             <p className="text-sm">Hi, Welcome👏</p>
           </div>
           <GForm
-            onSubmit={onSubmit}
             className="mt-6 space-y-5"
             resolver={zodResolver(registerValidationSchema)}
+            onSubmit={onSubmit}
           >
-            <GInput type="text" label="Name" name="name" />
-            <GInput type="email" label="Email" name="email" clasName="" />
-            <GInput type="address" label="Address" name="addressa" clasName="" />
+            <GInput label="Name" name="name" type="text" />
+            <GInput clasName="" label="Email" name="email" type="email" />
+            <GInput clasName="" label="Address" name="addressa" type="address" />
             <GInput
-              type="number"
+              clasName=""
               label="Phone"
               name="phoneNumber"
-              clasName=""
+              type="number"
             />
             <div className="relative">
               <GInput
-                type={showPassword ? "password" : "text"}
                 label="Password"
                 name="password"
+                type={showPassword ? "password" : "text"}
               />
               {showPassword ? (
                 <FaEyeSlash
@@ -112,15 +111,15 @@ const RegistrationPage = () => {
             </div>
             {/* file upload */}
             <input
-              onChange={(e) => onChangeFile(e.target.files)}
-              type="file"
               className="w-full bg-gray-100 p-2 rounded-lg"
+              type="file"
+              onChange={(e) => onChangeFile(e.target.files)}
             />
             {
               <Button
                 className="w-full bg-green-700 text-white disabled:bg-disable"
-                type="submit"
                 disabled={!imageFile}
+                type="submit"
               >
                 Sign Up
               </Button>

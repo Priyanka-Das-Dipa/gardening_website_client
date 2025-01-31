@@ -33,18 +33,18 @@ const PostBanner = ({
       <div className=" ">
         <div className="flex justify-center items-center">
           <Input
-            onChange={(e) => setSearchTerm(e.target.value)}
-            type="text"
             className="w-full max-w-lg p-3 rounded-lg row-span-2 text-gray-800"
             placeholder="Search posts..."
+            type="text"
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
         <div className="flex justify-center items-center">
           <Select
+            className="max-w-xs"
             isDisabled={isLoading}
             label="Select an animal"
             size="sm"
-            className="max-w-xs"
             onChange={(e: any) => setCategory(e.target.value)}
           >
             <SelectItem key={""} value="">
