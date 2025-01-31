@@ -10,9 +10,10 @@ export type TUser = {
   _id: string;
   email: string;
   name: string;
-  role ?: string;
+  role?: string;
   iat: number;
   exp: number;
+  address?: string;
   phoneNumber: string;
   profilePhoto?: string | undefined;
 };

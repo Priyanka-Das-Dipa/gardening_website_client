@@ -7,8 +7,11 @@ import Image from "next/image";
 import { SlUserFollowing } from "react-icons/sl";
 import { GiShadowFollower } from "react-icons/gi";
 import { MdOutlinePostAdd } from "react-icons/md";
+import { useAppSelector } from "@/src/redux/hooks";
 
 const UserProfile = () => {
+  const user = useAppSelector((state) => state.auth.user);
+
   return (
     <div className="border-2 h-screen shadow-md">
       <div className="flex justify-center items-center py-16">
@@ -16,12 +19,14 @@ const UserProfile = () => {
           <Image
             width={200}
             height={200}
-            src={user}
+            src={`${user?.profilePhoto || ""}`}
             alt="userImage"
-            className="rounded-full object-cover"
+            className="rounded-full size-48 object-cover"
           />
-          <h1 className="text-center font-bold text-2xl">Priyanka Das Dipa</h1>
-          <p className="text-center text-lg py-1">Akhaliya KaliBari, Sylhet</p>
+          <h1 className="text-center font-bold text-2xl">{user?.name}</h1>
+          <p className="text-center text-lg py-1">
+            {user?.address || "Akhaiya Kali Bari, Sylhet"}
+          </p>
           <div className="space-y-2">
             <div className="border flex justify-center items-center gap-5 px-6 py-3 rounded-full shadow-md">
               <span className="flex justify-center items-center gap-1">

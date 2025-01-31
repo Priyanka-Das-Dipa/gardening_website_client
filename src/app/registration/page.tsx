@@ -85,6 +85,7 @@ const RegistrationPage = () => {
           >
             <GInput type="text" label="Name" name="name" />
             <GInput type="email" label="Email" name="email" clasName="" />
+            <GInput type="address" label="Address" name="addressa" clasName="" />
             <GInput
               type="number"
               label="Phone"
