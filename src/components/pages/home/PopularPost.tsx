@@ -8,6 +8,7 @@ import Image from "next/image";
 import { AiTwotoneDislike, AiTwotoneLike } from "react-icons/ai";
 import { useGetCategoryQuery } from "@/src/redux/features/category/category.api";
 import { useAppSelector } from "@/src/redux/hooks";
+import Link from "next/link";
 
 const PopularPost = () => {
   const { data, isLoading } = useGetCategoryQuery({});
@@ -37,13 +38,15 @@ const PopularPost = () => {
             >
               {/* Image with zoom effect */}
               <div className="relative group">
-                <Image
-                  width={500}
-                  height={500}
-                  src={category?.image}
-                  alt={category?.name}
-                  className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-110"
-                />
+                <Link href={"post"}>
+                  <Image
+                    width={500}
+                    height={500}
+                    src={category?.image}
+                    alt="Category Image"
+                    className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                </Link>
               </div>
 
               {/* Card content */}

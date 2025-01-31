@@ -58,7 +58,7 @@ const NavigateBar = () => {
 
   return (
     <div>
-      <Navbar className="shadow-lg" onMenuOpenChange={setIsMenuOpen}>
+      <Navbar className="shadow-lg " onMenuOpenChange={setIsMenuOpen}>
         <div className="flex justify-between w-full  items-center px-3 lg:px-0">
           {/* toggle and Icon */}
           <NavbarContent>
