@@ -3,21 +3,22 @@
 /* eslint-disable prettier/prettier */
 "use client";
 import Image from "next/image";
-import vagitable from "@/src/assets/images/vagitable.jpeg";
-import fruit from "@/src/assets/images/fruit.jpeg";
-import flower from "@/src/assets/images/flower.jpeg";
-import hurbs from "@/src/assets/images/hurbs.jpeg";
-import Culinary from "@/src/assets/images/culinary.jpg";
+import { useGetCategoryQuery } from "@/src/redux/features/category/category.api";
+import Link from "next/link";
 
 const Category = () => {
-  const data = [
-    { src: vagitable, name: "Vegetables" },
-    { src: fruit, name: "Fruits" },
-    { src: vagitable, name: "Vegetables" },
-    { src: flower, name: "Flowers" },
-    { src: hurbs, name: "Herbs" },
-    { src: Culinary, name: "Culinary" },
-  ];
+  const { data, isLoading } = useGetCategoryQuery({});
+  const categories = data?.data;
+
+  // Handle loading state
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  // Handle case where categories is undefined or empty
+  if (!categories || categories.length === 0) {
+    return <div>No categories available.</div>;
+  }
 
   return (
     <div className="container mx-auto my-20">
@@ -34,26 +35,27 @@ const Category = () => {
           </ul>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pt-5">
-        {data.map((item, index) => (
-          <div
-            key={index}
-            className="relative group w-full h-64 overflow-hidden rounded-lg"
-          >
-            <Image
-              alt={item.name}
-              src={item.src}
-              width={500}
-              height={500}
-              className="object-cover w-full h-full"
-            />
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 flex items-center justify-center text-white font-bold text-3xl">
-              {item.name}
+      <Link href="/category">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pt-5">
+          {categories.map((item: any, index: number) => (
+            <div
+              key={index}
+              className="relative group w-full h-64 overflow-hidden rounded-lg"
+            >
+              <Image
+                alt="Category Image"
+                src={item?.image || "/culinary.JPG"}
+                width={500}
+                height={500}
+                className="object-cover w-full h-full"
+              />
+              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 flex items-center justify-center text-white font-bold text-3xl">
+                {item?.category || "Category"}
+              </div>
             </div>
-          </div>
-        ))}
-        
-      </div>
+          ))}
+        </div>
+      </Link>
     </div>
   );
 };
