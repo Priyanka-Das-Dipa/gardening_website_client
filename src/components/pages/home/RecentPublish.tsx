@@ -8,6 +8,8 @@ import user from "@/src/assets/images/user.jpeg";
 import vegetable from "@/src/assets/images/fruit.jpeg";
 
 const RecentPublish = () => {
+
+  
   return (
     <div className="container mx-auto my-28">
       <div className="space-y-3 mb-10">
@@ -19,6 +21,7 @@ const RecentPublish = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pt-8">
+        
         <div className="max-w-3xl w-full bg-white shadow-lg rounded-lg overflow-hidden flex">
           {/* Left side: Image */}
           <div className="w-1/2">
@@ -69,7 +72,6 @@ const RecentPublish = () => {
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   );

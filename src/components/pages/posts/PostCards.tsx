@@ -5,6 +5,7 @@
 "use client";
 import Image from "next/image";
 import user from "@/src/assets/images/user.jpeg";
+import Link from "next/link";
 
 const extractFirstImage = (html: string) => {
   const imgTagMatch = html.match(/<img[^>]+src="([^">]+)"/);
@@ -52,9 +53,11 @@ const PostCards: React.FC<PostSection4Props> = ({ post }) => {
           <h2 className="text-2xl font-semibold mb-2">{post?.title}</h2>
           <p className="text-gray-700 mb-4">{shortText}</p>
           {plainText.length > 100 && (
-            <button className="text-blue-500 font-medium hover:underline mb-4">
-              Read More
-            </button>
+            <Link href={`/post/${post._id}`}>
+              <button className="text-blue-500 font-medium hover:underline mb-4">
+                Read More
+              </button>
+            </Link>
           )}
           <div className="text-sm text-gray-600 mb-4">
             <span className="font-semibold">Category:</span>
