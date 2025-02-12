@@ -15,6 +15,7 @@ import { useState } from "react";
 import { useDebounce } from "@/src/hooks/useDebounce";
 import { useGetAllPostQuery } from "@/src/redux/features/post/post.api";
 import Link from "next/link";
+import { getFirstImage } from "@/src/utilis/getFirstImage";
 
 const MainFeedBackPage = () => {
   const [srcValue, setSearchTerm] = useState<string>("");
@@ -28,7 +29,14 @@ const MainFeedBackPage = () => {
     premium,
   });
 
-  console.log(data?.data);
+  const modifyData = data?.data?.map((item: any) => {
+    const postImg = getFirstImage(item?.post);
+    console.log("from Line 33", postImg);
+    return {
+      ...item,
+      postImg,
+    };
+  });
 
   return (
     <div className="flex px-6 md:px-0 ">
@@ -40,19 +48,21 @@ const MainFeedBackPage = () => {
           <h1 className="text-2xl font-bold text-center py-3 underline border rounded-md shadow-md ">
             All post
           </h1>
-          {data?.data?.map((item: any, idex: number) => (
+          {modifyData?.map((item: any, idex: number) => (
             <div
               key={idex}
               className="w-full px-5 bg-white shadow-lg rounded-lg overflow-hidden flex"
             >
               <div className="w-1/2">
                 {/* <Image
-                          width={500}
-                          height={500}
-                          src={}
-                          alt="Popular Post"
-                          className="w-full h-full object-cover"
-                        /> */}
+                  width={500}
+                  height={500}
+                  src={`${item?.postImg}`}
+                  alt="Popular Post"
+                  className="w-full h-full object-cover"
+                /> */}
+
+                {/* {item.postImg} */}
               </div>
               <div className="w-2/3 p-4">
                 <h2 className="text-2xl font-semibold mb-2">{item?.title}</h2>
