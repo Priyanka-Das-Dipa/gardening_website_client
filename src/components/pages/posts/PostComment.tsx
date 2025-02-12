@@ -11,15 +11,11 @@ import GForm from "../../allInputs/Form";
 import GTaxtArea from "../../allInputs/TaxtArea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { commentValidationSchema } from "@/src/validation/validationSchema";
-import { Tooltip } from "@heroui/react";
-import { FaThumbsDown, FaThumbsUp } from "react-icons/fa";
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 
 const PostComment = ({
   postId,
   activity,
-  downVotes,
-  upVotes,
 }: {
   downVotes: number;
   upVotes: number;
@@ -29,9 +25,10 @@ const PostComment = ({
   const [handlevotes] = useHandleVotesMutation();
   const [addComment] = useHandleCommentMutation();
   const { user: localUser } = useLocalUser();
-  //   const myActivity = activity.find(
-  //     (item: any) => item?.userId?._id == localUser?._id
-  //   );
+  const myActivity = activity.find(
+    (item: any) => item?.userId?._id == localUser?._id
+  );
+  console.log(localUser);
   const router = useRouter();
   // handle Like Button
   const handleVotes = async (votes: boolean) => {
@@ -99,16 +96,7 @@ const PostComment = ({
           We appreciate your valuable feedback, which enables us to create even
           better experiences.
         </h3>
-        <div className="flex justify-between items-center">
-          {/* <div className="flex gap-10 items-center bg-secondary text-white p-2 rounded-md">
-            <h3 className="font-bold flex gap-2">
-              {upVotes} <FaThumbsUp size={15} className="mt-1" />
-            </h3>
-            <h3 className="font-bold flex gap-2">
-              {downVotes} <FaThumbsDown size={15} className="mt-1" />
-            </h3>
-          </div> */}
-        </div>
+
         <div className="flex flex-col gap-5">
           {/* Input for typing a comment */}
           <GForm
@@ -126,7 +114,7 @@ const PostComment = ({
             <button
               type="submit"
               className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md w-full mt-5"
-              // onClick={handleAddComment} 
+              // onClick={handleAddComment}
             >
               Comment
             </button>
