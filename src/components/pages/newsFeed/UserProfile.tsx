@@ -19,7 +19,7 @@ const UserProfile = () => {
             alt="userImage"
             className="rounded-full size-48 object-cover"
             height={200}
-            src={`${user?.profilePhoto || ""}`}
+            src={`${user?.profilePhoto || "/user.JPEG"}`}
             width={200}
           />
           <h1 className="text-center font-bold text-2xl">{user?.name}</h1>

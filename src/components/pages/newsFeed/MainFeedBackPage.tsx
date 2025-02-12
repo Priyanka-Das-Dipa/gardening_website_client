@@ -31,7 +31,7 @@ const MainFeedBackPage = () => {
   console.log(data?.data);
 
   return (
-    <div className="flex px-6 gap-4 md:px-0 ">
+    <div className="flex px-6 md:px-0 ">
       <div className="w-[300px]">
         <UserProfile />
       </div>

@@ -33,15 +33,15 @@ const ProfilePage = () => {
               </div>
               {/* more info */}
               <div className="p-3 md:p-6">
-                <div className="flex flex-col gap-2">
-                  <span className="text-sm md:text-lg font-medium">
-                    Name: {user?.name}
+                <div className="flex flex-col gap-2 items-center">
+                  <span className="text-sm md:text-2xl font-bold">
+                    {user?.name}
                   </span>
                   <span className="text-sm md:text-lg font-medium">
-                    Email: {user?.email}
+                    {user?.role}
                   </span>
                   <span className="text-sm md:text-lg font-medium">
-                    Role: {user?.role}
+                    {user?.email}
                   </span>
                   <span className="text-sm md:text-lg font-medium">
                     Phone: {user?.phoneNumber}
