@@ -45,13 +45,13 @@ const MainFeedBackPage = () => {
       </div>
       <div className="mx-auto w-full h-screen overflow-x-auto flex-1">
         <>
-          <h1 className="text-2xl font-bold text-center py-3 underline border rounded-md shadow-md ">
+          <h1 className="text-2xl font-bold text-center py-3 underline border rounded-md shadow-md">
             All post
           </h1>
           {modifyData?.map((item: any, idex: number) => (
             <div
               key={idex}
-              className="w-full px-5 bg-white shadow-lg rounded-lg overflow-hidden flex"
+              className="w-full border px-5 bg-white shadow-lg my-2 rounded-lg overflow-hidden flex"
             >
               <div className="w-1/2">
                 {/* <Image
