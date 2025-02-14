@@ -42,9 +42,10 @@ const Sidebar = () => {
                 <Link
                   onClick={() => setSidebarOpen(!sideBarOpen)}
                   key={idx}
-                  className="sm:text-lg font-medium bg-slate-500 bg-opacity-50 p-2 rounded"
+                  className="sm:text-lg font-medium flex items-start gap-2 justify-start bg-opacity-50 p-2 rounded text-white"
                   href={`/admin/${item?.url}`}
                 >
+                  <span className="text-2xl text-white">{item?.icon}</span>
                   {item?.name}
                 </Link>
               );
@@ -54,9 +55,10 @@ const Sidebar = () => {
                 <Link
                   onClick={() => setSidebarOpen(!sideBarOpen)}
                   key={idx}
-                  className="sm:text-lg font-medium bg-slate-500 bg-opacity-50 p-2 rounded"
+                  className="sm:text-lg font-medium flex text-white items-start gap-2 justify-start bg-opacity-50 p-2 rounded"
                   href={`/user/${item?.url}`}
                 >
+                  <span className="text-2xl text-white">{item?.icon}</span>
                   {item?.name}
                 </Link>
               );

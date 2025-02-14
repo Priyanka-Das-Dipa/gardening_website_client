@@ -63,7 +63,7 @@ const AllPost = () => {
 
   return (
     <>
-      <div className="flex-1 md:border-l p-2 md:p-5  bg-gray-300 rounded-lg">
+      <div className="flex-1 md:border-l p-2 md:p-5 rounded-lg">
         <div>
           <h2 className="font-semibold text-lg md:text-xl my-3">Your Posts</h2>
           {post?.length < 1 ? (
