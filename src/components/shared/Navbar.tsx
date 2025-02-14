@@ -23,6 +23,9 @@ import Cookies from "js-cookie";
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
 import { logOut } from "@/src/redux/features/auth/authSlice";
 import Image from "next/image";
+import { CgProfile } from "react-icons/cg";
+import { MdDashboardCustomize } from "react-icons/md";
+import { IoMdLogOut } from "react-icons/io";
 
 const NavigateBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -107,25 +110,34 @@ const NavigateBar = () => {
                 </div>
               </DropdownTrigger>
               <DropdownMenu className="m-2">
-                <DropdownItem key={""}>
-                  <div className="space-y-2 mb-2 flex flex-col text-center">
+                <DropdownItem key={"profile"}>
+                  <div className="mb-1 flex flex-col text-center">
                     <Link href="/profile">
                       <Button className="text-center w-full rounded-lg text-black text-md p-2">
+                        <CgProfile className="text-green-700 text-lg" />
                         Profile
                       </Button>
                     </Link>
+                  </div>
+                </DropdownItem>
+                <DropdownItem key={"dashboard"}>
+                  <div className=" mb-1 flex flex-col text-center">
                     <Link
                       href={`/${user?.role === "ADMIN" ? "admin" : "user"}`}
                     >
                       <Button className="text-center w-full rounded-lg text-black text-md p-2">
+                        <MdDashboardCustomize className="text-green-700 text-lg" />
                         Dashboard
                       </Button>
                     </Link>
                   </div>
+                </DropdownItem>
+                <DropdownItem key={"logout"}>
                   <Button
-                    className="text-center py-2 w-full h-auto text-black"
+                    className="text-center bg-red-500 py-2 w-full h-auto text-white"
                     onPress={handleLogout}
                   >
+                    <IoMdLogOut className="text-white text-xl" />
                     Log Out
                   </Button>
                 </DropdownItem>
