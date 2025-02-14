@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // eslint-disable-next-line prettier/prettier
 // Function to extract the first image from the post content
 export const getFirstImage = (html: string) => {

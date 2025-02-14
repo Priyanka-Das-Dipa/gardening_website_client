@@ -22,12 +22,12 @@ const PostDetails = ({ id }: { id: string }) => {
       </div>
 
       <div className="p-3 md:p-5 border mt-5 rounded-lg mx-auto max-w-3xl mb-5">
-        {/* <PostComment
+        <PostComment
           activity={post?.activity}
           postId={post?._id}
           upVotes={post?.upVotes?.length}
           downVotes={post?.downVotes?.length}
-        /> */}
+        />
       </div>
     </div>
   );

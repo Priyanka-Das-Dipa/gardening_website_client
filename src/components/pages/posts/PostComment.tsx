@@ -1,3 +1,5 @@
+/* eslint-disable import/order */
+/* eslint-disable prettier/prettier */
 import { useLocalUser } from "@/src/context/user.provider";
 import {
   useHandleCommentMutation,
@@ -25,10 +27,10 @@ const PostComment = ({
   const [handlevotes] = useHandleVotesMutation();
   const [addComment] = useHandleCommentMutation();
   const { user: localUser } = useLocalUser();
-  const myActivity = activity.find(
-    (item: any) => item?.userId?._id == localUser?._id
-  );
-  console.log(localUser);
+  // const myActivity = activity.find(
+  //   (item: any) => item?.userId?._id == localUser?._id
+  // );
+  // console.log(localUser);
   const router = useRouter();
   // handle Like Button
   const handleVotes = async (votes: boolean) => {
@@ -52,6 +54,7 @@ const PostComment = ({
         userId: localUser?._id,
         votes,
       })) as any;
+
       if (res?.data?.success) {
         toast.success(res?.data?.message);
       } else {
@@ -77,11 +80,20 @@ const PostComment = ({
       });
     } else {
       const toastId = toast.loading("Commenting...");
+      // check if the user is logged in
+
+      console.log("Posting comment:", {
+        postId,
+        userId: localUser?._id,
+        comment: data?.comment,
+      });
       const res = (await addComment({
         postId: postId,
         userId: localUser?._id,
         comment: data?.comment,
       })) as any;
+      console.log("From Comment ", res);
+
       if (res?.data?.success) {
         toast.success("Your comment added Successfully", { id: toastId });
       } else if (res?.error) {
@@ -89,6 +101,7 @@ const PostComment = ({
       }
     }
   };
+
   return (
     <div>
       <div className="flex flex-col space-x-8">
