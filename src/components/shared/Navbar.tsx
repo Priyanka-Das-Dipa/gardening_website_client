@@ -35,7 +35,7 @@ const NavigateBar = () => {
   // console.log("user navbar", user);
 
   const dispatch = useAppDispatch();
-  // const pathName = usePathname();
+  const pathName = usePathname();
 
   // const userEmail = user?.email;
 
