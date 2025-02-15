@@ -42,16 +42,17 @@ const PostCards: React.FC<PostSection4Props> = ({ post }) => {
   const postOwner = post?.userId;
   const plainText = extractTextFromHTML(post?.post);
   const shortText = truncateText(plainText, 400);
-  // console.log("Post Owner", postOwner?.name);
-
-  // console.log("From Category page", firstImage, postOwner);
 
   return (
     <div>
-      <div className="max-w-3xl w-full bg-white shadow-lg rounded-lg overflow-hidden flex">
-        <div className="w-full p-4">
-          <h2 className="text-2xl font-semibold mb-2">{post?.title}</h2>
-          <p className="text-gray-700 mb-4">{shortText}</p>
+    
+      <div className="max-w-3xl w-full bg-white shadow-lg rounded-lg overflow-hidden flex min-h-[300px] h-auto">
+        <div className="w-full p-4 flex flex-col justify-between">
+          <div>
+            <h2 className="text-2xl font-semibold mb-2">{post?.title}</h2>
+            <p className="text-gray-700 mb-4 line-clamp-3">{shortText}</p>
+          </div>
+
           {plainText.length > 100 && (
             <Link href={`/post/${post._id}`}>
               <button className="text-blue-500 font-medium hover:underline mb-4">
@@ -59,10 +60,12 @@ const PostCards: React.FC<PostSection4Props> = ({ post }) => {
               </button>
             </Link>
           )}
+
           <div className="text-sm text-gray-600 mb-4">
-            <span className="font-semibold">Category:</span>
+            <span className="font-semibold">Category:</span>{" "}
             {post?.category?.category}
           </div>
+
           <div className="flex items-center">
             <Image
               alt="Author"
