@@ -13,11 +13,18 @@ import GForm from "../../allInputs/Form";
 import GTaxtArea from "../../allInputs/TaxtArea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { commentValidationSchema } from "@/src/validation/validationSchema";
-import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
+import {
+  AiFillDislike,
+  AiFillLike,
+  AiOutlineDislike,
+  AiOutlineLike,
+} from "react-icons/ai";
 
 const PostComment = ({
   postId,
   activity,
+  upVotes,
+  downVotes,
 }: {
   downVotes: number;
   upVotes: number;
@@ -132,20 +139,33 @@ const PostComment = ({
               Comment
             </button>
           </GForm>
-          <div className="flex items-center justify-stretch gap-2 mb-5 ml-5">
-            <button
-              className="flex items-center text-black text-opacity-50 hover:text-blue-600 disabled:text-secondary"
-              onClick={() => handleVotes(true)}
-            >
-              <AiOutlineLike className="mr-2" size={40} />
-            </button>
+          <div className="flex justify-between items-center">
+            <div className="flex items-center justify-stretch gap-2 mb-5 ml-5">
+              <button
+                className="flex items-center text-black text-opacity-50 hover:text-blue-600 disabled:text-secondary"
+                onClick={() => handleVotes(true)}
+              >
+                <AiOutlineLike className="mr-2" size={40} />
+              </button>
 
-            <button
-              className="flex items-center text-black text-opacity-50 hover:text-blue-600 disabled:text-secondary"
-              onClick={() => handleVotes(false)}
-            >
-              <AiOutlineDislike className="mr-2" size={40} />
-            </button>
+              <button
+                className="flex items-center text-black text-opacity-50 hover:text-blue-600 disabled:text-secondary"
+                onClick={() => handleVotes(false)}
+              >
+                <AiOutlineDislike className="mr-2" size={40} />
+              </button>
+            </div>
+            <div className="flex items-center justify-stretch gap-2 mb-5 ml-5">
+              <button className="flex items-center  text-opacity-50 text-blue-700 disabled:text-secondary">
+                <AiFillLike className="mr-2" size={40} />
+              </button>
+              {upVotes}
+
+              <button className="flex items-center  text-opacity-50 text-blue-700 disabled:text-secondary">
+                <AiFillDislike className="mr-2" size={40} />
+              </button>
+              {downVotes}
+            </div>
           </div>
         </div>
       </div>

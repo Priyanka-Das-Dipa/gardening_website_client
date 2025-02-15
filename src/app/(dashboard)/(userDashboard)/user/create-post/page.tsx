@@ -12,13 +12,13 @@ const CreatePost = () => {
           Post
         </h1>
         <Link
-          className="px-3 bg-green-600 py-2 rounded-lg"
+          className="px-3 bg-purple-700 text-white py-2 rounded-lg"
           href={`/user/create-post/create`}
         >
           Create A Post
         </Link>
       </div>
-      <div className="border bg-gray-500 rounded-lg mt-3">
+      <div className="border rounded-lg mt-3">
         <UserAllPosts />
       </div>
     </div>

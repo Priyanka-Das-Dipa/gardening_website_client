@@ -12,10 +12,6 @@ import { FaUsers } from "react-icons/fa";
 import { RiUserSharedLine, RiUserStarLine } from "react-icons/ri";
 import { GrLike } from "react-icons/gr";
 import {
-  Pie,
-  Sector,
-  Cell,
-  ResponsiveContainer,
   LineChart,
   XAxis,
   YAxis,

@@ -1,12 +1,13 @@
 /* eslint-disable prettier/prettier */
 
+import DashboardTable from "@/src/components/pages/dashboard/DashboardTable";
 
 const UserDashboard = () => {
-    return (
-        <div>
-            <h1>This is User Dashboard</h1>
-        </div>
-    );
+  return (
+    <div>
+      <DashboardTable />
+    </div>
+  );
 };
 
 export default UserDashboard;
