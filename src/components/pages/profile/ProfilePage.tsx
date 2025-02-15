@@ -8,6 +8,8 @@ import Image from "next/image";
 import UsersPosts from "./UsersPosts";
 import { useAppSelector } from "@/src/redux/hooks";
 
+import defaultImage from "@/src/assets/images/user1.jpeg";
+
 // const stripePromise = loadStripe(process.env.NEXT_Publishable_Key as string);
 const ProfilePage = () => {
   const user = useAppSelector((state) => state.auth.user);
@@ -27,7 +29,7 @@ const ProfilePage = () => {
                   alt="user Image"
                   className="md:size-[250px] size-[150px] object-bottom rounded-full border-2 p-2 shadow-lg"
                   height={500}
-                  src={user?.profilePhoto || "/user.JPEG"}
+                  src={user?.profilePhoto || defaultImage}
                   width={400}
                 />
               </div>

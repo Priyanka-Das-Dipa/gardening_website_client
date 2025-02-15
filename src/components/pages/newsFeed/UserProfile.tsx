@@ -7,6 +7,7 @@ import { SlUserFollowing } from "react-icons/sl";
 import { GiShadowFollower } from "react-icons/gi";
 import { MdOutlinePostAdd } from "react-icons/md";
 import { useAppSelector } from "@/src/redux/hooks";
+import defaultImage from "@/src/assets/images/user1.jpeg";
 
 const UserProfile = () => {
   const user = useAppSelector((state) => state.auth.user);
@@ -19,7 +20,7 @@ const UserProfile = () => {
             alt="userImage"
             className="rounded-full size-48 object-cover"
             height={200}
-            src={`${user?.profilePhoto || "/user.JPEG"}`}
+            src={`${user?.profilePhoto || defaultImage}`}
             width={200}
           />
           <h1 className="text-center font-bold text-2xl">{user?.name}</h1>
