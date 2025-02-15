@@ -27,7 +27,7 @@ import { CgProfile } from "react-icons/cg";
 import { MdDashboardCustomize } from "react-icons/md";
 import { IoMdLogOut } from "react-icons/io";
 import { usePathname } from "next/navigation";
-import user from "@/src/assets/images/user1.jpeg";
+import defaultImage from "@/src/assets/images/user1.jpeg";
 
 const NavigateBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -107,7 +107,7 @@ const NavigateBar = () => {
                     alt="Profile Image"
                     className="size-12 rounded-full shadow cursor-pointer"
                     height={300}
-                    src={user?.profilePhoto || { user }}
+                    src={user?.profilePhoto || defaultImage}
                     width={300}
                   />
                 </div>
