@@ -69,10 +69,10 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className="bg-white md:min-h-screen md:pt-10">
+    <div className="bg-slate-100 md:min-h-screen md:pt-10">
       {isLoading && <p>Loading.....</p>}
       <div className="">
-        <div className="max-w-[500px] mx-auto md:mt-10 border p-3 md:p-6 rounded-lg shadow-inner font-roboto_slab">
+        <div className="max-w-[600px] bg-white mx-auto md:mt-10 border p-3 md:p-6 rounded-lg shadow-inner font-roboto_slab">
           <div className="space-y-1">
             <h4 className="text-lg md:text-xl font-semibold">Registration</h4>
             <p className="text-sm">Hi, Welcome👏</p>

@@ -31,7 +31,7 @@ const MainFeedBackPage = () => {
 
   const modifyData = data?.data?.map((item: any) => {
     const postImg = getFirstImage(item?.post);
-    console.log("from Line 33", postImg);
+    // console.log("from Line 33", postImg);
     return {
       ...item,
       postImg,
@@ -63,7 +63,7 @@ const MainFeedBackPage = () => {
                 /> */}
 
                 <img
-                  src={item.postImg}
+                  src={item?.postImg || "/image.jpeg"}
                   className="w-full h-full object-cover"
                   alt=""
                 />

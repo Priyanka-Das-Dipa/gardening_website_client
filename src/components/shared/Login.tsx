@@ -18,6 +18,8 @@ import GInput from "../allInputs/Input";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Button } from "@heroui/react";
 import Link from "next/link";
+import Image from "next/image";
+import loginImg from "@/src/assets/images/login.png";
 
 const Login = () => {
   const [login, { isLoading, isSuccess }] = useLogInMutation();
@@ -63,12 +65,12 @@ const Login = () => {
   }
 
   return (
-    <div className="bg-white md:min-h-screen">
+    <div className="bg-slate-100 md:min-h-screen">
       {isLoading ? (
         <p>Loading.....</p>
       ) : (
-        <div className="md:mt-14">
-          <div className="max-w-[500px] mx-auto md:mt-10 border p-3 md:p-6 rounded-lg shadow-inner font-roboto_slab">
+        <div className="md:pt-24">
+          <div className="max-w-[600px] bg-white mx-auto  border p-3 md:p-6 rounded-lg shadow-inner font-roboto_slab">
             <div className="space-y-1">
               <h4 className="text-lg md:text-xl font-semibold">Login page</h4>
               <p className="text-sm">Hi, Welcome Back👏</p>
