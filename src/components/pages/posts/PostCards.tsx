@@ -9,7 +9,6 @@ import Link from "next/link";
 
 const extractFirstImage = (html: string) => {
   const imgTagMatch = html.match(/<img[^>]+src="([^">]+)"/);
-  console.log("Image Tag Match", imgTagMatch);
   return imgTagMatch ? imgTagMatch[1] : null;
 };
 

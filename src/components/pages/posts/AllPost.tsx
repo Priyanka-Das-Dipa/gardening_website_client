@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/jsx-sort-props */
 /* eslint-disable prettier/prettier */
 /* eslint-disable import/order */
@@ -21,7 +22,7 @@ const AllPost = () => {
     premium,
   });
 
-  console.log(data?.data);
+  console.log(data?.data?.title);
 
   return (
     <>
@@ -34,9 +35,16 @@ const AllPost = () => {
           {data?.data?.map((item: any, idex: number) => (
             <div
               key={idex}
-              className="max-w-3xl w-full bg-white shadow-lg rounded-lg overflow-hidden flex"
+              className="max-w-3xl h-[325px] w-full bg-white shadow-lg rounded-lg overflow-hidden flex"
             >
-              <div className="w-1/2">{/* Image component */}</div>
+              <div className="w-1/2">
+                {/* Image component */}
+                <img
+                  src={item?.category?.image}
+                  className="w-full h-full object-cover"
+                  alt=""
+                />
+              </div>
               <div className="w-2/3 p-4">
                 <h2 className="text-2xl font-semibold mb-2">{item?.title}</h2>
                 <p className="text-gray-700 mb-4">
