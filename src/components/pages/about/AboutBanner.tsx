@@ -1,3 +1,4 @@
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable react/jsx-sort-props */
 /* eslint-disable padding-line-between-statements */
 /* eslint-disable import/order */
@@ -27,6 +28,8 @@ const AboutBanner = () => {
           objectFit="cover"
           objectPosition="top"
         />
+        {/* Black Overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
         {/* Content Overlay */}
         <div className="absolute inset-0 flex  items-center justify-center text-center text-white pb-5">

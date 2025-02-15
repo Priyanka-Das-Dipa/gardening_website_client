@@ -40,7 +40,7 @@ const MainFeedBackPage = () => {
 
   return (
     <div className="flex px-6 md:px-0 ">
-      <div className="w-[300px]">
+      <div className="hidden lg:block w-[300px]">
         <UserProfile />
       </div>
       <div className="mx-auto w-full h-screen overflow-x-auto flex-1">

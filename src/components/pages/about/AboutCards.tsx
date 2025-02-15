@@ -9,12 +9,17 @@ import card1 from "@/src/assets/images/card1.jpg";
 import card2 from "@/src/assets/images/card2.jpg";
 import card3 from "@/src/assets/images/card3.jpg";
 import card4 from "@/src/assets/images/card4.jpg";
+import { MdDesignServices, MdLocalOffer } from "react-icons/md";
+import { PiFlowerTulipBold } from "react-icons/pi";
 
 const AboutCards = () => {
   return (
     <div className="container mx-auto ">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-16 p-24 bg-white">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-16 p-0 lg:p-24 bg-white">
         <div className="p-6">
+          <div className="flex justify-center items-center ">
+            <MdDesignServices className="text-4xl text-green-700" />
+          </div>
           <h1 className="text-center text-green-600 font-semibold text-2xl">
             Design consultation
           </h1>
@@ -25,6 +30,9 @@ const AboutCards = () => {
           </p>
         </div>
         <div className="p-6">
+          <div className="flex justify-center items-center ">
+            <PiFlowerTulipBold className="text-4xl text-green-700" />
+          </div>
           <h1 className="text-center text-green-600 font-semibold text-2xl">
             Planting plan
           </h1>
@@ -35,6 +43,9 @@ const AboutCards = () => {
           </p>
         </div>
         <div className="p-6">
+          <div className="flex justify-center items-center ">
+            <MdLocalOffer className="text-4xl text-green-700" />
+          </div>
           <h1 className="text-center text-green-600 font-semibold text-2xl">
             Tenders
           </h1>
@@ -46,10 +57,10 @@ const AboutCards = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-24">
         {/* Card 1: Our Mission */}
-        <div className="bg-white w-full md:w-80  rounded-lg hover:shadow-lg overflow-hidden ">
+        <div className="bg-white w-full  rounded-lg hover:shadow-lg overflow-hidden ">
           <Image
             className="w-full h-96 object-cover"
-            src={card1} 
+            src={card1}
             alt="Mission"
             width={500}
             height={500}
@@ -70,7 +81,7 @@ const AboutCards = () => {
         </div>
 
         {/* Card 2: Our Values */}
-        <div className="bg-white  w-full md:w-80  rounded-lg hover:shadow-lg overflow-hidden">
+        <div className="bg-white  w-full  rounded-lg hover:shadow-lg overflow-hidden">
           <Image
             className="w-full h-96 object-cover"
             src={card2} // Replace with your image URL
@@ -94,7 +105,7 @@ const AboutCards = () => {
         </div>
 
         {/* Card 3: Our Team */}
-        <div className="bg-white  w-full md:w-80  rounded-lg hover:shadow-lg overflow-hidden">
+        <div className="bg-white  w-full  rounded-lg hover:shadow-lg overflow-hidden">
           <Image
             className="w-full h-96 object-cover"
             src={card3} // Replace with your image URL
@@ -118,7 +129,7 @@ const AboutCards = () => {
         </div>
 
         {/* Card 4: Our Vision */}
-        <div className="bg-white  w-full md:w-80 rounded-lg hover:shadow-lg overflow-hidden">
+        <div className="bg-white  w-full rounded-lg hover:shadow-lg overflow-hidden">
           <Image
             className="w-full h-96 object-cover"
             src={card4} // Replace with your image URL
