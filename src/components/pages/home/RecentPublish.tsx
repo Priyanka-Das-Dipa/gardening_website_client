@@ -13,7 +13,7 @@ const RecentPublish = () => {
   return (
     <div className="container mx-auto my-28">
       <div className="space-y-3 mb-10">
-        <h1 className="text-4xl text-center text-green-600">
+        <h1 className="text-4xl text-center font-bold text-green-600">
           Recent Highlights
         </h1>
         <p className="text-center text-xl">

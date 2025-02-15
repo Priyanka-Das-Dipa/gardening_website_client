@@ -23,7 +23,9 @@ const Category = () => {
   return (
     <div className="container mx-auto my-20">
       <div className="space-y-5 mb-6">
-        <h1 className="text-4xl text-center text-green-600">Categories</h1>
+        <h1 className="text-4xl font-bold text-center text-green-600">
+          Categories
+        </h1>
         <div className="flex justify-center items-center">
           <ul className="flex gap-5 font-bold flex-wrap">
             <li className=" text-black hover:text-green-800">Fruit</li>
@@ -49,7 +51,7 @@ const Category = () => {
                 src={item?.image || "/culinary.JPG"}
                 width={500}
               />
-              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 flex items-center justify-center text-white font-bold text-3xl">
+              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-70 flex items-center justify-center text-white font-bold text-3xl">
                 {item?.category || "Category"}
               </div>
             </div>

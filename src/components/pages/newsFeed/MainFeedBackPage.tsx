@@ -62,7 +62,11 @@ const MainFeedBackPage = () => {
                   className="w-full h-full object-cover"
                 /> */}
 
-                {/* {item.postImg} */}
+                <img
+                  src={item.postImg}
+                  className="w-full h-full object-cover"
+                  alt=""
+                />
               </div>
               <div className="w-2/3 p-4">
                 <h2 className="text-2xl font-semibold mb-2">{item?.title}</h2>

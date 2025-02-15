@@ -19,7 +19,7 @@ const PopularPost = () => {
   return (
     <div className="container mx-auto my-20">
       <div className="space-y-3 mb-10">
-        <h1 className="text-4xl text-center text-green-600">
+        <h1 className="text-4xl font-bold text-center text-green-600">
           Most Talked About
         </h1>
         <p className="text-center text-xl ">

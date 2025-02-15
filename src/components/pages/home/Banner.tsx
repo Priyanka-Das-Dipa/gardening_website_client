@@ -1,3 +1,4 @@
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable react/jsx-sort-props */
 /* eslint-disable padding-line-between-statements */
 /* eslint-disable import/order */
@@ -27,6 +28,7 @@ const Banner = () => {
           layout="fill"
           objectFit="cover"
         />
+        <div className="absolute inset-0 bg-black bg-opacity-55"></div>
         {/* Content Overlay */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-6">
           <h1
@@ -51,12 +53,16 @@ const Banner = () => {
               animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <button className="bg-green-500 hover:bg-green-600 text-white px-3 py-1  md:px-6 md:py-3 rounded-md shadow-md font-semibold">
-              Explore More
-            </button>
-            <button className="bg-transparent border border-white hover:bg-white hover:text-green-600 text-white px-3 py-1 md:px-6 md:py-3 rounded-md shadow-md font-semibold">
-              Get Started
-            </button>
+            <Link href="/post">
+              <button className="bg-green-500 hover:bg-green-600 text-white px-3 py-1  md:px-6 md:py-3 rounded-md shadow-md font-semibold">
+                Explore More
+              </button>
+            </Link>
+            <Link href="/login">
+              <button className="bg-transparent border border-white hover:bg-white hover:text-green-600 text-white px-3 py-1 md:px-6 md:py-3 rounded-md shadow-md font-semibold">
+                Get Started
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -73,7 +79,10 @@ const Banner = () => {
                 Get expert advice on how to design a garden.
               </p>
               <div className="inline-block">
-                <Link href="#" className="text-green-500 font-semibold">
+                <Link
+                  href="/news-feed"
+                  className="text-green-500 font-semibold"
+                >
                   Read more
                 </Link>
                 <hr className="border-green-500 border-t-2 mt-1 w-full mx-auto" />
@@ -90,7 +99,10 @@ const Banner = () => {
                 Plants are expensive and need to be looked after.
               </p>
               <div className="inline-block">
-                <Link href="#" className="text-green-500 font-semibold">
+                <Link
+                  href="/news-feed"
+                  className="text-green-500 font-semibold"
+                >
                   Read more
                 </Link>
                 <hr className="border-green-500 border-t-2 mt-1 w-full mx-auto" />
@@ -107,7 +119,10 @@ const Banner = () => {
                 Keep your green garden low maintenance.
               </p>
               <div className="inline-block">
-                <Link href="#" className="text-green-500 font-semibold">
+                <Link
+                  href="/news-feed"
+                  className="text-green-500 font-semibold"
+                >
                   Read more
                 </Link>
                 <hr className="border-green-500 border-t-2 mt-1 w-full mx-auto" />
@@ -124,7 +139,10 @@ const Banner = () => {
                 Fun programs for adults, children, and families.
               </p>
               <div className="inline-block">
-                <Link href="#" className="text-green-500 font-semibold">
+                <Link
+                  href="/news-feed"
+                  className="text-green-500 font-semibold"
+                >
                   Read more
                 </Link>
                 <hr className="border-green-500 border-t-2 mt-1 w-full mx-auto" />

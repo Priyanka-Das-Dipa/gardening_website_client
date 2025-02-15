@@ -26,6 +26,7 @@ import Image from "next/image";
 import { CgProfile } from "react-icons/cg";
 import { MdDashboardCustomize } from "react-icons/md";
 import { IoMdLogOut } from "react-icons/io";
+import { usePathname } from "next/navigation";
 
 const NavigateBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -34,6 +35,7 @@ const NavigateBar = () => {
   // console.log("user navbar", user);
 
   const dispatch = useAppDispatch();
+  // const pathName = usePathname();
 
   // const userEmail = user?.email;
 

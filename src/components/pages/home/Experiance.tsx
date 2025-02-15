@@ -10,7 +10,7 @@ const Experiance = () => {
   return (
     <div className="container mx-auto my-20">
       <div className="space-y-5 ">
-        <h1 className="text-4xl text-center text-green-600">
+        <h1 className="text-4xl font-bold text-center text-green-600">
           Crafting Green Spaces for a Better Tomorrow!
         </h1>
         <p className="text-center text-xl pt-3">

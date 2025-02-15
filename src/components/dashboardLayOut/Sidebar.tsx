@@ -6,12 +6,25 @@
 "use client";
 import { useLocalUser } from "@/src/context/user.provider";
 import { SidebarItemsAdmin, SideBarItemsUser } from "@/src/menuItems/MenuItems";
+import { logOut } from "@/src/redux/features/auth/authSlice";
+import { useAppDispatch } from "@/src/redux/hooks";
+import Cookies from "js-cookie";
 import Link from "next/link";
 import React, { useState } from "react";
+import { IoMdLogOut } from "react-icons/io";
+import { toast } from "sonner";
 
 const Sidebar = () => {
   const { user } = useLocalUser();
   const [sideBarOpen, setSidebarOpen] = useState(false);
+  const dispatch = useAppDispatch();
+  const handleLogout = () => {
+    const toastId = toast.loading("processing...");
+
+    Cookies.remove("accessToken");
+    dispatch(logOut());
+    toast.success("Logout successful", { id: toastId });
+  };
   return (
     <div>
       <button
@@ -36,6 +49,13 @@ const Sidebar = () => {
       <div
         className={`min-h-screen flex gap-3 pt-10 duration-200 w-[300px] flex-col sm:gap-4 fixed h-full md:static border-r-3 shadow-lg text-black p-2 ${sideBarOpen ? "-left-[300px] " : "z-40"}`}
       >
+        <div>
+          <Link href="/">
+            <p className="font-bold text-white text-2xl text-center">
+              GrowGenius
+            </p>
+          </Link>
+        </div>
         {user?.role === "ADMIN"
           ? SidebarItemsAdmin?.map((item, idx) => {
               return (
@@ -63,6 +83,15 @@ const Sidebar = () => {
                 </Link>
               );
             })}
+      </div>
+      <div className="mt-auto">
+        <button
+          onClick={handleLogout}
+          className="w-full flex justify-center items-center gap-2 text-white rounded p-2"
+        >
+          <IoMdLogOut className="text-white text-xl" />
+          Logout
+        </button>
       </div>
     </div>
   );
