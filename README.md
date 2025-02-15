@@ -1,53 +1,24 @@
-# Next.js & HeroUI Template
+## Gardening Tips and Trick Website 
+- The Gardening Tips & Advice Platform is a comprehensive full-stack web application designed for gardening enthusiasts and professionals to share, discover, and engage with gardening knowledge. It will provide users with insightful tips, plant care advice, seasonal guides, and techniques to enhance their gardening experiences. 
 
-This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
+### Technologies :
+- Next js
+- TypeScript
+- MongoDB 
+- Express
+- Node.js.
+- JWT-based user authentication
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
+### Core Project Objectives
 
-## Technologies Used
+- Implement JWT-based user authentication, ensuring secure login, registration, and profile management.
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [HeroUI v2](https://heroui.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+- Create a responsive user interface that works across devices—mobile, and desktop.
 
-## How to Use
+- Develop social features, including upvoting posts, commenting, and displaying the most popular content.
 
-### Use the template with create-next-app
+- Build a rich text editor to allow users to create, edit, and share gardening tips and guides, supporting multimedia content (images, videos, etc.).
 
-To create a new project based on this template using `create-next-app`, run the following command:
+- Develop an admin dashboard for managing users, posts, and community moderation.
 
-```bash
-npx create-next-app -e https://github.com/heroui-inc/next-app-template
-```
 
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
-
-```bash
-npm install
-```
-
-### Run the development server
-
-```bash
-npm run dev
-```
-
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
